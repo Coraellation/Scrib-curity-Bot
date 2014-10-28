@@ -4,10 +4,13 @@ from myro import*
 #At a certain amount, it will lock out the robot for a set number of minutes.
 wrongTries = 0
 
-def get_password():
+main()
+
+def getPassword():
     #read left, middle, right sensors
     speak ("Enter your six digit password", 0)
     password = []
+
     while (len(python) < 6):
         if getLight ("left") > 4000:
             password.append("left")
@@ -24,7 +27,8 @@ def get_password():
     speak("your password has been set", 0)
     return password
 
-def check_password (password):
+def checkPassword (password):
+    speak("Please enter your password.")
     for count in range (6)
         if getLight ("left") > 4000:
             if password[count] == "left":
@@ -43,14 +47,25 @@ def check_password (password):
                 beep(.5, 800)
             else:
                 wrongPassword()
+        beep(.5, 800)
+
+    speak("Password entered successfully. Security deactivated.")
+    deactivated()
 
 def wrongPassword():
     global wrongTries++
     speak("you have entered an incorrect password", 0)
     activated()
 
-def check_activation():
+def checkActivation():
     if getLight("left") > 4000:
+        return True
+    else:
+        return False
+
+def isChangePassword():
+    #Input password from user to de-activate security system
+    if getLight("middle") > 4000:
         return True
     else:
         return False
@@ -58,27 +73,33 @@ def check_activation():
 def activated():
     #insert sensor checking for objects
 
-    if removed:
+    while (1):
+        if (getLight("all") > 4000):
+            checkPassword()
 
 
 
-def change_password():
-    #Input password from user to de-activate security system
-    if getLight("middle") > 4000:
-        return True
-    else:
-        return False
-
-def deactivate():
 
 
-def main ():
-    password = []
-    password = get_password()
 
+def deactivated():
     while(1):
-        if check_activation():
+        if checkActivation():
+            speak("To deactivate, cover all three light sensors.")
             activated()
 
-        if change_password(password):
-            password = get_password()
+        if isChangePassword(password):
+            password = getPassword()
+
+            
+def main ():
+    init("COM3")
+    password = getPassword()
+
+    speak("The robot is ready to be activated.", 0)
+    speak("To activate, cover left light sensor.", 0)
+
+    #Puts the robot in deactivated mode, pending activation.
+    deactivated()
+
+    
