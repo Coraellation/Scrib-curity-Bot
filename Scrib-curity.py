@@ -88,6 +88,7 @@ def wrongPassword():
     if wrongTries == 3 and (time.time() - errorTime) < 600:
         speak("You have entered an incorrect password three times. The robot will be locked out for 10 minutes.")
         lockedOut = True
+        wrongTries = 0
 
     speak("You have entered an incorrect password", 0)
     activated()
