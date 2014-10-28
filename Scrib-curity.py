@@ -7,22 +7,18 @@ wrongTries = 0
 def get_password():
     #read left, middle, right sensors
     speak ("Enter your six digit password", 0)
-    password = [6]
-    count = 0
-    while (count<6):
+    password = []
+    while (password.length < 6):
         if getLight ("left") > 4000:
-            password[count] = "left"
-            count++
+            password.append("left")
             beep(.5, 800)
 
         elif getLight("center") > 4000:
-            password[count] = "center"
-            count++
+            password.append("center")
             beep(.5, 800)
 
         elif getLight("right") > 4000:
-            password[count] = "right"
-            count++
+            password.append("right")
             beep(.5, 800)
 
     speak("your password has been set", 0)
@@ -88,5 +84,5 @@ def main ():
         if check_activation():
             activated()
 
-        if change_password():
+        if change_password(password):
             password = get_password()
