@@ -1,10 +1,28 @@
-from myro import*
-
+from myro import *
+from time import *
 #This variable keeps track of the number of incorrect password attempts
 #At a certain amount, it will lock out the robot for a set number of minutes.
+startTime = time.time()
+errorTime = 0
 wrongTries = 0
+lockedOut = False
 
 main()
+
+
+def checkActivation():
+    if getLight("left") > 4000:
+        return True
+    else:
+        return False
+
+def isChangePassword():
+    #Input password from user to deactivate security system
+    if getLight("middle") > 4000:
+        return True
+    else:
+        return False
+
 
 def getPassword():
     #read left, middle, right sensors
@@ -27,7 +45,7 @@ def getPassword():
     speak("your password has been set", 0)
     return password
 
-def checkPassword (password):
+def checkPassword (password, isChange):
     speak("Please enter your password.")
     for count in range (6)
         if getLight ("left") > 4000:
@@ -37,7 +55,7 @@ def checkPassword (password):
                 wrongPassword()
 
         elif getLight("center") > 4000:
-            if password[count] == "center:":
+            if password[count] == "center":
                 beep(.5, 800)
             else
                 wrongPassword()
@@ -49,49 +67,53 @@ def checkPassword (password):
                 wrongPassword()
         beep(.5, 800)
 
-    speak("Password entered successfully. Security deactivated.")
+    if (!isChange):
+        speak("Password entered successfully. Security deactivated.")
+    else:
+        speak("Password changed successfully. Security remains deactivated.")
+
     deactivated()
 
 def wrongPassword():
-    global wrongTries++
-    speak("you have entered an incorrect password", 0)
+    global wrongTries
+    global errorTime
+    global lockedOut
+
+    #Sets time of first error.
+    if wrongTries == 0:
+        errorTime = time.time()
+
+    wrongTries++
+
+    if wrongTries == 3 and (time.time() - errorTime) < 600:
+        speak("You have entered an incorrect password three times. The robot will be locked out for 10 minutes.")
+        lockedOut = True
+
+    speak("You have entered an incorrect password", 0)
     activated()
 
-def checkActivation():
-    if getLight("left") > 4000:
-        return True
-    else:
-        return False
 
-def isChangePassword():
-    #Input password from user to de-activate security system
-    if getLight("middle") > 4000:
-        return True
-    else:
-        return False
 
 def activated():
     #insert sensor checking for objects
+    speak("Security is now activated, to deactivate, cover all three light sensors.")
 
+    #If all sensors are covered, go to password entry.
     while (1):
-        if (getLight("all") > 4000):
-            checkPassword()
+        if (getLight("all") > 4000) and !lockedOut:
+            checkPassword(password, False)
 
 
-
-
-
-
-def deactivated():
+def deactivated(password):
     while(1):
-        if checkActivation():
-            speak("To deactivate, cover all three light sensors.")
+        if checkActivation():            
             activated()
 
-        if isChangePassword(password):
+        if isChangePassword():
+            checkPassword(password, True)
             password = getPassword()
 
-            
+
 def main ():
     init("COM3")
     password = getPassword()
@@ -100,6 +122,4 @@ def main ():
     speak("To activate, cover left light sensor.", 0)
 
     #Puts the robot in deactivated mode, pending activation.
-    deactivated()
-
-    
+    deactivated(password)
