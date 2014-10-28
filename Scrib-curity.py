@@ -25,25 +25,21 @@ def get_password():
     return password
 
 def check_password (password):
-    count = 0
-    while (count<6):
+    for count in range (6)
         if getLight ("left") > 4000:
             if password[count] == "left":
-                count++
                 beep(.5, 800)
             else:
                 wrongPassword()
 
         elif getLight("center") > 4000:
             if password[count] == "center:":
-                count++
                 beep(.5, 800)
             else
                 wrongPassword()
 
         elif getLight("right") > 4000:
             if password[count] == "right":
-                count++
                 beep(.5, 800)
             else:
                 wrongPassword()
