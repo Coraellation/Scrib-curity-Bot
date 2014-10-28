@@ -8,7 +8,7 @@ def get_password():
     #read left, middle, right sensors
     speak ("Enter your six digit password", 0)
     password = []
-    while (password.length < 6):
+    while (len(python) < 6):
         if getLight ("left") > 4000:
             password.append("left")
             beep(.5, 800)
