@@ -101,7 +101,7 @@ def activated():
 
     #If all sensors are covered, go to password entry.
     while (1):
-        if (getLight("all") > 4000) and !lockedOut:
+        if (getLight("all") > 4000) and not lockedOut:
             checkPassword(password, False)
 
 
