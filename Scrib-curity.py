@@ -37,12 +37,12 @@ def getPassword():
             print getLight("left")
             beep(.5, 800)
 
-        elif getLight("center") > 65380:
+        elif getLight("center") > 65300:
             password.append("center")
             print getLight("center")
             beep(.5, 1200)
 
-        elif getLight("right") > 65000:
+        elif getLight("right") > 64900:
             password.append("right")
             print getLight("right")
             beep(.5, 1400)
@@ -61,13 +61,13 @@ def checkPassword (password, isChange):
             else:
                 wrongPassword()
 
-        elif getLight("center") > 65380:
+        elif getLight("center") > 65300:
             if password[count] == "center":
                 beep(.5, 1200)
             else:
                 wrongPassword()
 
-        elif getLight("right") > 65000:
+        elif getLight("right") > 64900:
             if password[count] == "right":
                 beep(.5, 1400)
             else:
