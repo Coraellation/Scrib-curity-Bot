@@ -40,12 +40,12 @@ def getPassword():
         elif getLight("center") > 65380:
             password.append("center")
             print getLight("center")
-            beep(.5, 800)
+            beep(.5, 1200)
 
         elif getLight("right") > 65000:
             password.append("right")
             print getLight("right")
-            beep(.5, 800)
+            beep(.5, 1400)
     print password
 
     speak("your password has been set", 0)
