@@ -11,14 +11,14 @@ lockedOut = False
 
 
 def checkActivation():
-    if getIR("left") == 1:
+    if getIR("left") == 0:
         return True
     else:
         return False
 
 def isChangePassword():
     #Input password from user to deactivate security system
-    if getIR("right") == 1:
+    if getIR("right") == 0:
         return True
     else:
         return False
@@ -29,13 +29,13 @@ def getPassword():
     speak ("Enter your six digit password", 0)
     password = []
 
-    while (len(password) < 6):
-        if getIR("left") == 1:
+    while len(password) < 6:
+        if getIR("left") == 0:
             password.append("left")
             beep(.5, 800)
 
 
-        elif getIR("right") == 1:
+        elif getIR("right") == 0:
             password.append("right")
             beep(.5, 800)
 
@@ -45,13 +45,13 @@ def getPassword():
 def checkPassword (password, isChange):
     speak("Please enter your password.")
     for count in range (6):
-        if getIR("left") == 1:
+        if getIR("left") == 0:
             if password[count] == "left":
                 beep(.5, 800)
             else:
                 wrongPassword()
 
-        elif getIR("right") == 1:
+        elif getIR("right") == 0:
             if password[count] == "right":
                 beep(.5, 800)
             else:
@@ -92,7 +92,7 @@ def activated(password):
 
     #If all sensors are covered, go to password entry.
     while (1):
-        if getIR("left") == 1 and getIR(right) == 1 and not lockedOut:
+        if getIR("left") == 0 and getIR(right) == 0 and not lockedOut:
             checkPassword(password, False)
 
 
