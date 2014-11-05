@@ -92,7 +92,7 @@ def activated(password):
 
     #If all sensors are covered, go to password entry.
     while (1):
-        if getIR("left") == 0 and getIR(right) == 0 and not lockedOut:
+        if getIR("left") == 0 and getIR("right") == 0 and not lockedOut:
             checkPassword(password, False)
 
 
