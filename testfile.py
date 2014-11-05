@@ -1,6 +1,6 @@
 ##dian's python test file
 
-speak("test this");
+speak("test this")
 
 picture = takePicture("pink")
 show(picture)
