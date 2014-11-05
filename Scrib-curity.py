@@ -122,7 +122,7 @@ def activated(password):
 def deactivated(password):
     speak("The robot is ready to be activated.", 0)
     speak("To activate, cover left light sensor.", 0)
-    speak("To change password, cover the center light sensor.")
+    speak("To change password, cover the center light sensor.", 0)
 
     while(1):
         wait(0.5)
