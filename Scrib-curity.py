@@ -43,7 +43,7 @@ def getPassword():
             print getLight("center")
             beep(.5, 1000)
 
-        elif getLight("right") > 64700:
+        elif getLight("right") > 64600:
             password.append("right")
             print getLight("right")
             beep(.5, 1200)
@@ -53,35 +53,40 @@ def getPassword():
     return password
 
 def checkPassword (password, isChange):
+    global wrongTries
     speak("Please enter your password.")
     for count in range(6):
-        wait(0.5)
-        if getLight("left") > 65000:
-            if password[count] == "left":
-                beep(.5, 800)
-            else:
-                wrongPassword()
+        while (1):
+            wait(0.5)
+            if getLight("left") > 65000:
+                if password[count] == "left":
+                    beep(.5, 800)
+                    break
+                else:
+                    wrongPassword(password)
 
-        elif getLight("center") > 65300:
-            if password[count] == "center":
-                beep(.5, 1000)
-            else:
-                wrongPassword()
+            elif getLight("center") > 65300:
+                if password[count] == "center":
+                    beep(.5, 1000)
+                    break
+                else:
+                    wrongPassword(password)
 
-        elif getLight("right") > 64700:
-            if password[count] == "right":
-                beep(.5, 1200)
-            else:
-                wrongPassword()
-
+            elif getLight("right") > 64600:
+                if password[count] == "right":
+                    beep(.5, 1200)
+                    break
+                else:
+                    wrongPassword(password)
+    wrongTries = 0
     if (not isChange):
         speak("Password entered successfully. Security deactivated.")
     else:
         speak("Password changed successfully. Security remains deactivated.")
 
-    deactivated()
+    deactivated(password)
 
-def wrongPassword():
+def wrongPassword(password):
     global wrongTries
     global errorTime
     global lockedOut
@@ -98,22 +103,29 @@ def wrongPassword():
         wrongTries = 0
 
     speak("You have entered an incorrect password", 0)
-    activated()
+    activated(password)
 
 
 
 def activated(password):
     #insert sensor checking for objects
-    speak("Security is now activated, to deactivate, cover all three light sensors.")
+    speak("Security is now activated, to deactivate, cover the left light sensor.")
 
     #If all sensors are covered, go to password entry.
     while (1):
-        if getLight("left") > 65000 and getLight("center") > 65360 and getLight ("right") > 64900 and not lockedOut:
+        wait(0.5)
+        print getLight()
+        if getLight ("left") > 65000 and not lockedOut:
             checkPassword(password, False)
 
 
 def deactivated(password):
+    speak("The robot is ready to be activated.", 0)
+    speak("To activate, cover left light sensor.", 0)
+    speak("To change password, cover the center light sensor.")
+
     while(1):
+        wait(0.5)
         if checkActivation():            
             activated(password)
 
@@ -126,8 +138,7 @@ def main ():
     init("COM3")
     password = getPassword()
 
-    speak("The robot is ready to be activated.", 0)
-    speak("To activate, cover left light sensor.", 0)
+
 
     #Puts the robot in deactivated mode, pending activation.
     deactivated(password)
