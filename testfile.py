@@ -1,3 +1,6 @@
+from myro import *
+init()
+
 ##dian's python test file
 
 speak("test this")
