@@ -11,14 +11,14 @@ lockedOut = False
 
 
 def checkActivation():
-    if getLight("left") > 4000:
+    if 64660:
         return True
     else:
         return False
 
 def isChangePassword():
     #Input password from user to deactivate security system
-    if getLight("middle") > 4000:
+    if getLight("center") > 65380:
         return True
     else:
         return False
@@ -29,16 +29,16 @@ def getPassword():
     speak ("Enter your six digit password", 0)
     password = []
 
-    while (len(password) < 6):
-        if getLight ("left") > 4000:
+    while len(password) < 6:
+        if getLight("left") > 64680:
             password.append("left")
             beep(.5, 800)
 
-        elif getLight("center") > 4000:
+        elif getLight("center") > 65380:
             password.append("center")
             beep(.5, 800)
 
-        elif getLight("right") > 4000:
+        elif getLight("right") > 65000:
             password.append("right")
             beep(.5, 800)
 
@@ -48,19 +48,19 @@ def getPassword():
 def checkPassword (password, isChange):
     speak("Please enter your password.")
     for count in range (6):
-        if getLight ("left") > 4000:
+        if getLight("left") > 64680:
             if password[count] == "left":
                 beep(.5, 800)
             else:
                 wrongPassword()
 
-        elif getLight("center") > 4000:
+        elif getLight("center") > 65380:
             if password[count] == "center":
                 beep(.5, 800)
             else:
                 wrongPassword()
 
-        elif getLight("right") > 4000:
+        elif getLight("right") > 65000:
             if password[count] == "right":
                 beep(.5, 800)
             else:
@@ -101,7 +101,7 @@ def activated(password):
 
     #If all sensors are covered, go to password entry.
     while (1):
-        if (getLight("all") > 4000) and not lockedOut:
+        if getLight("left") > 64680 and getLight("center") > 65360 and getLight ("right") > 65000 and not lockedOut:
             checkPassword(password, False)
 
 
