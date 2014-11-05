@@ -11,34 +11,31 @@ lockedOut = False
 
 
 def checkActivation():
-    if getLight("left") > 4000:
+    if getIR("left") == 1:
         return True
     else:
         return False
 
 def isChangePassword():
     #Input password from user to deactivate security system
-    if getLight("middle") > 4000:
+    if getIR("right") == 1:
         return True
     else:
         return False
 
 
 def getPassword():
-    #read left, middle, right sensors
+    #read left, right sensors
     speak ("Enter your six digit password", 0)
     password = []
 
     while (len(password) < 6):
-        if getLight ("left") > 4000:
+        if getIR("left") == 1:
             password.append("left")
             beep(.5, 800)
 
-        elif getLight("center") > 4000:
-            password.append("center")
-            beep(.5, 800)
 
-        elif getLight("right") > 4000:
+        elif getIR("right") == 1:
             password.append("right")
             beep(.5, 800)
 
@@ -48,19 +45,13 @@ def getPassword():
 def checkPassword (password, isChange):
     speak("Please enter your password.")
     for count in range (6):
-        if getLight ("left") > 4000:
+        if getIR("left") == 1:
             if password[count] == "left":
                 beep(.5, 800)
             else:
                 wrongPassword()
 
-        elif getLight("center") > 4000:
-            if password[count] == "center":
-                beep(.5, 800)
-            else:
-                wrongPassword()
-
-        elif getLight("right") > 4000:
+        elif getIR("right") == 1:
             if password[count] == "right":
                 beep(.5, 800)
             else:
@@ -97,11 +88,11 @@ def wrongPassword():
 
 def activated(password):
     #insert sensor checking for objects
-    speak("Security is now activated, to deactivate, cover all three light sensors.")
+    speak("Security is now activated, to deactivate, cover all both IR sensors.")
 
     #If all sensors are covered, go to password entry.
     while (1):
-        if (getLight("all") > 4000) and not lockedOut:
+        if getIR("left") == 1 and getIR(right) == 1 and not lockedOut:
             checkPassword(password, False)
 
 
@@ -120,7 +111,7 @@ def main ():
     password = getPassword()
 
     speak("The robot is ready to be activated.", 0)
-    speak("To activate, cover left light sensor.", 0)
+    speak("To activate, cover left IR sensor.", 0)
 
     #Puts the robot in deactivated mode, pending activation.
     deactivated(password)
