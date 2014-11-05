@@ -46,6 +46,7 @@ def getPassword():
             password.append("right")
             print getLight("right")
             beep(.5, 800)
+    print password
 
     speak("your password has been set", 0)
     return password
