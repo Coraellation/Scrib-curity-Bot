@@ -32,7 +32,7 @@ def getPassword():
 
     while len(password) < 6:
         wait(0.5)
-        if getLight("left") > 65000:
+        if getLight("left") > 64900:
             password.append("left")
             print getLight("left")
             beep(.5, 800)
@@ -54,7 +54,7 @@ def checkPassword (password, isChange):
     speak("Please enter your password.")
     for count in range (6):
         wait(0.5)
-        if getLight("left") > 65000:
+        if getLight("left") > 64900:
             if password[count] == "left":
                 beep(.5, 800)
             else:
@@ -62,13 +62,13 @@ def checkPassword (password, isChange):
 
         elif getLight("center") > 65380:
             if password[count] == "center":
-                beep(.5, 800)
+                beep(.5, 1200)
             else:
                 wrongPassword()
 
         elif getLight("right") > 65000:
             if password[count] == "right":
-                beep(.5, 800)
+                beep(.5, 1400)
             else:
                 wrongPassword()
         beep(.5, 800)
