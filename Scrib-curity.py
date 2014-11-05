@@ -20,7 +20,7 @@ def checkActivation():
 def isChangePassword():
     #Input password from user to deactivate security system
     wait(0.5)
-    if getLight("center") > 65380:
+    if getLight("center") > 65200:
         return True
     else:
         return False
@@ -38,7 +38,7 @@ def getPassword():
             print getLight("left")
             beep(.5, 800)
 
-        elif getLight("center") > 65300:
+        elif getLight("center") > 65200:
             password.append("center")
             print getLight("center")
             beep(.5, 1000)
@@ -65,7 +65,7 @@ def checkPassword (password, isChange):
                 else:
                     wrongPassword(password)
 
-            elif getLight("center") > 65300:
+            elif getLight("center") > 65200:
                 if password[count] == "center":
                     beep(.5, 1000)
                     break
@@ -122,7 +122,7 @@ def activated(password):
 def deactivated(password):
     speak("The robot is ready to be activated.", 0)
     speak("To activate, cover left light sensor.", 0)
-    speak("To change password, cover the center light sensor.")
+    speak("To change password, cover the center light sensor.",0)
 
     while(1):
         wait(0.5)
