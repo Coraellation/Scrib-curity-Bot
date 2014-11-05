@@ -18,6 +18,7 @@ def checkActivation():
 
 def isChangePassword():
     #Input password from user to deactivate security system
+    wait(0.5)
     if getLight("center") > 65380:
         return True
     else:
@@ -30,6 +31,7 @@ def getPassword():
     password = []
 
     while len(password) < 6:
+        wait(0.5)
         if getLight("left") > 64680:
             password.append("left")
             beep(.5, 800)
@@ -48,6 +50,7 @@ def getPassword():
 def checkPassword (password, isChange):
     speak("Please enter your password.")
     for count in range (6):
+        wait(0.5)
         if getLight("left") > 64680:
             if password[count] == "left":
                 beep(.5, 800)
