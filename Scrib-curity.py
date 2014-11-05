@@ -99,6 +99,9 @@ def activated():
     #insert sensor checking for objects
     speak("Security is now activated, to deactivate, cover all three light sensors.")
 
+    #security implementation here.
+
+    
     #If all sensors are covered, go to password entry.
     while (1):
         if (getLight("all") > 4000) and not lockedOut:
