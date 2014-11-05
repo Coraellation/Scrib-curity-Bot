@@ -11,7 +11,7 @@ lockedOut = False
 
 
 def checkActivation():
-    if 64660:
+    if getLight("left") >64900:
         return True
     else:
         return False
@@ -40,12 +40,12 @@ def getPassword():
         elif getLight("center") > 65300:
             password.append("center")
             print getLight("center")
-            beep(.5, 1200)
+            beep(.5, 1000)
 
-        elif getLight("right") > 64900:
+        elif getLight("right") > 64800:
             password.append("right")
             print getLight("right")
-            beep(.5, 1400)
+            beep(.5, 1200)
     print password
 
     speak("your password has been set", 0)
@@ -53,7 +53,7 @@ def getPassword():
 
 def checkPassword (password, isChange):
     speak("Please enter your password.")
-    for count in range (6):
+    for count in range(6):
         wait(0.5)
         if getLight("left") > 64900:
             if password[count] == "left":
@@ -63,16 +63,15 @@ def checkPassword (password, isChange):
 
         elif getLight("center") > 65300:
             if password[count] == "center":
-                beep(.5, 1200)
+                beep(.5, 1000)
             else:
                 wrongPassword()
 
-        elif getLight("right") > 64900:
+        elif getLight("right") > 64800:
             if password[count] == "right":
-                beep(.5, 1400)
+                beep(.5, 1200)
             else:
                 wrongPassword()
-        beep(.5, 800)
 
     if (not isChange):
         speak("Password entered successfully. Security deactivated.")
