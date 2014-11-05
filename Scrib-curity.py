@@ -32,7 +32,7 @@ def getPassword():
 
     while len(password) < 6:
         wait(0.5)
-        if getLight("left") > 64680:
+        if getLight("left") > 65000:
             password.append("left")
             print getLight("left")
             beep(.5, 800)
@@ -54,7 +54,7 @@ def checkPassword (password, isChange):
     speak("Please enter your password.")
     for count in range (6):
         wait(0.5)
-        if getLight("left") > 64680:
+        if getLight("left") > 65000:
             if password[count] == "left":
                 beep(.5, 800)
             else:
@@ -107,7 +107,7 @@ def activated(password):
 
     #If all sensors are covered, go to password entry.
     while (1):
-        if getLight("left") > 64680 and getLight("center") > 65360 and getLight ("right") > 65000 and not lockedOut:
+        if getLight("left") > 65000 and getLight("center") > 65360 and getLight ("right") > 65000 and not lockedOut:
             checkPassword(password, False)
 
 
