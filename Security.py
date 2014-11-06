@@ -6,7 +6,7 @@ class Security (object):
     def __init__(self):
         self.__startTime = time.time()
         self.__errorTime = 0
-        self.__lockOutTime = 0;
+        self.__lockOutTime = 0
         #This variable keeps track of the number of incorrect password attempts
         #At a certain amount, it will lock out the robot for a set number of minutes
         self.__wrongTries = 0
