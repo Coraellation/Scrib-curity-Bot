@@ -8,9 +8,9 @@ wrongTries = 0
 lockedOut = False
 
 #GLOBAL light variables (for sensitivity)
-leftS = 65000;
-centerS = 65300;
-rightS = 64600;
+leftS = 65000
+centerS = 65300
+rightS = 64600
 
 
 
