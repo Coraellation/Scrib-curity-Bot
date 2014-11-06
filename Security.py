@@ -97,7 +97,7 @@ class Security (object):
             speak("Password changed successfully. Security remains deactivated.")
 
         deactivated(password)
-
+`
     def wrongPassword(password):
         global wrongTries
         global errorTime
