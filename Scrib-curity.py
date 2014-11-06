@@ -7,17 +7,23 @@ errorTime = 0
 wrongTries = 0
 lockedOut = False
 
+#GLOBAL light variables (for sensitivity)
+leftS = 65000;
+centerS = 65300;
+rightS = 64600;
 
 
 
 def checkActivation():
+    global leftS
     wait (0.5)
-    if getLight("left") >65000:
+    if getLight("left") >leftS:
         return True
     else:
         return False
 
 def isChangePassword():
+    global rightS
     #Input password from user to deactivate security system
     wait(0.5)
     if getLight("center") > 65380:
@@ -27,23 +33,26 @@ def isChangePassword():
 
 
 def getPassword():
+    global leftS
+    global centerS
+    global rightS
     #read left, middle, right sensors
     speak ("Enter your six digit password", 0)
     password = []
 
     while len(password) < 6:
         wait(0.5)
-        if getLight("left") > 65000:
+        if getLight("left") > leftS:
             password.append("left")
             print getLight("left")
             beep(.5, 800)
 
-        elif getLight("center") > 65300:
+        elif getLight("center") > centerS:
             password.append("center")
             print getLight("center")
             beep(.5, 1000)
 
-        elif getLight("right") > 64600:
+        elif getLight("right") > rightS:
             password.append("right")
             print getLight("right")
             beep(.5, 1200)
@@ -54,25 +63,29 @@ def getPassword():
 
 def checkPassword (password, isChange):
     global wrongTries
+    global leftS
+    global centerS
+    global rightS
+
     speak("Please enter your password.")
     for count in range(6):
         while (1):
             wait(0.5)
-            if getLight("left") > 65000:
+            if getLight("left") > leftS:
                 if password[count] == "left":
                     beep(.5, 800)
                     break
                 else:
                     wrongPassword(password)
 
-            elif getLight("center") > 65300:
+            elif getLight("center") > centerS:
                 if password[count] == "center":
                     beep(.5, 1000)
                     break
                 else:
                     wrongPassword(password)
 
-            elif getLight("right") > 64600:
+            elif getLight("right") > rightS:
                 if password[count] == "right":
                     beep(.5, 1200)
                     break
@@ -108,6 +121,7 @@ def wrongPassword(password):
 
 
 def activated(password):
+    global leftS
     #insert sensor checking for objects
     speak("Security is now activated, to deactivate, cover the left light sensor.")
 
@@ -115,7 +129,7 @@ def activated(password):
     while (1):
         wait(0.5)
         print getLight()
-        if getLight ("left") > 65000 and not lockedOut:
+        if getLight ("left") > leftS and not lockedOut:
             checkPassword(password, False)
 
 
