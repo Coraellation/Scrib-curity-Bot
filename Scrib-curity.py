@@ -12,8 +12,6 @@ leftS = 65000
 centerS = 65300
 rightS = 64600
 
-
-
 def checkActivation():
     global leftS
     wait (0.5)
