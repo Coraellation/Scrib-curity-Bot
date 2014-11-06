@@ -64,7 +64,7 @@ class Security (object):
         speak("your password has been set", 0)
         return password
 
-    def checkPassword (self, password, isChange):
+    def checkPassword (self):
 
         speak("Please enter your password.")
         for count in range(6):
@@ -98,11 +98,7 @@ class Security (object):
 
         deactivated(password)
 `
-    def wrongPassword(password):
-        global wrongTries
-        global errorTime
-        global lockedOut
-
+    def wrongPassword(self):
         #Sets time of first error.
         if wrongTries == 0:
             errorTime = time.time()
@@ -119,7 +115,7 @@ class Security (object):
 
 
 
-    def activated(password):
+    def activated(self):
         global leftS
         #insert sensor checking for objects
         speak("Security is now activated, to deactivate, cover the left light sensor.")
@@ -132,7 +128,7 @@ class Security (object):
                 checkPassword(password, False)
 
 
-    def deactivated(password):
+    def deactivated(self):
         speak("The robot is ready to be activated.", 0)
         speak("To activate, cover left light sensor.", 0)
         speak("To change password, cover the center light sensor.", 0)
