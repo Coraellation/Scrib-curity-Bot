@@ -38,8 +38,11 @@ def deactivated(self):
             activated()
 
         if getLight("center") > security.getCenterS():
-            security.checkPassword()
-            self.__password = security.setPassword()
+            if security.checkPassword():
+                self.__password = security.setPassword()
+            else:
+                security.wrongPassword()
+                activated()
 
 
 def main():
