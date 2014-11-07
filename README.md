@@ -4,6 +4,7 @@ Scrib-curity-Bot
 SE101 Scribbler Robot Project that serves as an alarm system to prevent theft.
 
 <h1>IR BRANCH</h1>
+<p>Most likely will not be necessary due to modifications to light sensing.</p>
 <p>
 We'll be replacing the password functionality that used light detection with IR sensors instead due to challenges with the light sensors. 
 </p>
