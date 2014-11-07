@@ -1,19 +1,5 @@
 Scrib-curity-Bot
 ================
+<h2>Backup Branch</h2>
 
-SE101 Scribbler Robot Project that serves as an alarm system to prevent theft.
-
-
-<h2>Main Features</h2>
-<ul>
-  <li>Light Sensor Input as menu navigation and password protection</li>
-  <li>Automatic lockout after too many incorrect password attempts</li>
-  <li>Image Processing</li>
-  <li>Password functionality</li>
-</ul>
-
-<h2>In Development</h2>
-<ul>
-  
-  <li>Image recgonition. </li>
-</ul>
+This contains the non-OO code in case OO doesn't work out.
