@@ -13,7 +13,7 @@ SE101 Scribbler Robot Project that serves as an alarm system to prevent theft.
 </ul>
 <h2>Needs Testing</h2>
 <ul>
-  <li>OOP System</li>
+  <li>OO System</li>
 </ul>
 <h2>In Development</h2>
 <ul>
@@ -22,4 +22,5 @@ SE101 Scribbler Robot Project that serves as an alarm system to prevent theft.
   <li>GUI Interface </li>
 </ul>
 
-<p>Scrib-curity has been re-coded in an OOP System, awaiting further documentation and testing. This will better help us code the system to interact with a GUI interface.</p>
+<p>Scrib-curity has been re-coded in an OO System, awaiting further documentation and testing. This will better help us code the system to interact with a GUI interface.</p>
+<p>The backup non-OO code has been placed in a seperate branch.</p>
