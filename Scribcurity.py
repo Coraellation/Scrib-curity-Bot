@@ -11,7 +11,7 @@ class Scribcurity:
         #OR GUI ACTIVATION...
         speak ("You can now set your password on the Robot or via the GUI. To set it on the robot, use any sensor.")
         while True:
-            if (getLight("left") > self.security.getLeftS() or getLight("center") > self.security.getCenterS() or getLight("right") > self.security.getRightS()):
+            if (getLight("left") < self.security.getLeftS() or getLight("center") < self.security.getCenterS() or getLight("right") < self.security.getRightS()):
                 self.security.setPassword()
                 break
             elif self.gui.getSetPassword():
@@ -30,7 +30,7 @@ class Scribcurity:
         while (1):
             wait(0.5)
             print getLight()
-            if getLight ("left") > self.security.getLeftS():
+            if getLight ("left") < self.security.getLeftS():
                 #If it's not locked out, it allows for deactivation
                 if not self.security.getLockedOut():
                     if self.security.checkPassword():
@@ -65,11 +65,11 @@ class Scribcurity:
         while(1):
             wait(0.5)
             #If the left sensor is covered, it activates
-            if getLight("left") > self.security.getLeftS() or self.gui.getWantActivation():
+            if getLight("left") < self.security.getLeftS() or self.gui.getWantActivation():
                 activated()
 
             #If the center sensor is covered, you can change your password
-            if getLight("center") > self.security.getCenterS():
+            if getLight("center") < self.security.getCenterS():
                 if self.security.checkPassword():
                     self.security.setPassword()
                 else:

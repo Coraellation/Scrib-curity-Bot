@@ -19,9 +19,9 @@ class Security (object):
         self.__lockedOut = False
 
         #GLOBAL light variables (for sensitivity)
-        self.__leftS = 65000
-        self.__centerS = 65300
-        self.__rightS = 64600
+        self.__leftS = 50000
+        self.__centerS = 50000
+        self.__rightS = 50000
         self.__password = []
         init("COM3")
 
@@ -58,17 +58,17 @@ class Security (object):
 
         while len(self.__password) < 6:
             wait(0.5)
-            if getLight("left") > self.getLeftS():
+            if getLight("left") < self.getLeftS():
                 self.__password.append("L")
                 print getLight("left")
                 beep(.5, 800)
 
-            elif getLight("center") > self.getCenterS():
+            elif getLight("center") < self.getCenterS():
                 self.__password.append("C")
                 print getLight("center")
                 beep(.5, 1000)
 
-            elif getLight("right") > self.getRightS():
+            elif getLight("right") < self.getRightS():
                 self.__password.append("R")
                 print getLight("right")
                 beep(.5, 1200)
@@ -89,21 +89,21 @@ class Security (object):
         for count in range(6):
             while 1:
                 wait(0.5)
-                if getLight("left") > self.getLeftS():
+                if getLight("left") < self.getLeftS():
                     if self.__password[count] == "L":
                         beep(.5, 800)
                         break
                     else:
                         return 0
 
-                elif getLight("center") > self.getCenterS():
+                elif getLight("center") < self.getCenterS():
                     if self.__password[count] == "C":
                         beep(.5, 1000)
                         break
                     else:
                         return 0
 
-                elif getLight("right") > self.getRightS():
+                elif getLight("right") < self.getRightS():
                     if self.__password[count] == "R":
                         beep(.5, 1200)
                         break
