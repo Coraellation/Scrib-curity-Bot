@@ -25,6 +25,9 @@ class Security (object):
         self.__password = []
         init("COM3")
 
+    def getPassword(self):
+        return self.__password
+
     def getLeftS(self):
         '''
         :return: sensitivity of the left light sensor.
@@ -39,10 +42,10 @@ class Security (object):
         return self.__centerS
 
     def getRightS(self):
-        '''
+        """
 
         :return: sensitivity of the right light sensor.
-        '''
+        """
         return self.__rightS
 
     def setPassword(self):
@@ -72,6 +75,9 @@ class Security (object):
         print password
 
         speak("your password has been set", 0)
+
+    def setGUIPassword(self, password):
+        self.__password = password
 
     def checkPassword (self):
         '''
@@ -108,6 +114,13 @@ class Security (object):
 
         return 1
 
+    def getLockedOut(self):
+        '''
+        :return: self.__locked out - boolean representing if the system is locked out or not
+        '''
+
+        return self.__lockedOut
+
     def checkLockedOut(self):
         '''
         Checks to see if the system is still locked out by comparing the
@@ -115,6 +128,7 @@ class Security (object):
         If it has been more than 10 minutes, it unlocks the robot.
         :return:
         '''
+
         if time.time() - self.__lockOutTime > 600:
             self.__lockedOut = False
 
@@ -126,6 +140,7 @@ class Security (object):
         for 10 minutes. It also resets the counter for the future.
         :return:
         '''
+
         #Sets time of first error.
         if self.__wrongTries == 0:
             self.__errorTime = time.time()
