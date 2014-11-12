@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1c6ae50-5132-4042-b137-a390c9cb837f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GUI.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Scribcurity.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Security.py" afterPath="$PROJECT_DIR$/Security.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI.py" afterPath="$PROJECT_DIR$/GUI.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Scrib-curity-Bot.iml" afterPath="$PROJECT_DIR$/.idea/Scrib-curity-Bot.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scribcurity.py" afterPath="$PROJECT_DIR$/Scribcurity.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Scrib-curity-Bot.iws" />
@@ -30,11 +30,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="GUI.py" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="GUI.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/GUI.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.42625" vertical-offset="985" max-vertical-offset="1887">
-                  <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.16306955" vertical-offset="1479" max-vertical-offset="2992">
+                  <caret line="91" column="63" selection-start-line="91" selection-start-column="63" selection-end-line="91" selection-end-column="63" />
                   <folding />
                 </state>
               </provider>
@@ -46,7 +46,9 @@
                 <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="2754">
                   <caret line="44" column="11" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
                   <folding>
-                    <element signature="e#0#18#0" expanded="true" />
+                    <marker date="1415748840768" expanded="true" signature="81:703" placeholder="..." />
+                    <marker date="1415748840768" expanded="true" signature="731:762" placeholder="..." />
+                    <marker date="1415748840768" expanded="true" signature="2103:2138" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -56,21 +58,21 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="MatrixReducer.py" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="MatrixReducer.py" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/../MatrixReducer/MatrixReducer.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="377" max-vertical-offset="1564">
-                  <caret line="45" column="36" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="36" />
+                <state vertical-scroll-proportion="0.8561151" vertical-offset="0" max-vertical-offset="1564">
+                  <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Scribcurity.py" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="Scribcurity.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Scribcurity.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.6632782" vertical-offset="0" max-vertical-offset="1547">
-                  <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1547">
+                  <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -105,8 +107,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -159,7 +161,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../MatrixReducer/MatrixReducer.py" />
-    <property name="options.lastSelected" value="vcs.Git" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -177,7 +179,7 @@
       <recent name="C:\Users\Owner\Documents\GitHub\Scrib-curity-Bot" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.GUI">
+  <component name="RunManager" selected="Python.MatrixReducer">
     <configuration default="false" name="light test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -209,6 +211,60 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Scrib-curity-Bot" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pixtest/pixtest.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="MatrixReducer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../MatrixReducer" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Scrib-curity-Bot" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../MatrixReducer/MatrixReducer.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="setup" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads/Windows (1)/Windows" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Scrib-curity-Bot" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/Windows (1)/Windows/setup.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Scribcurity" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Scrib-curity-Bot" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scribcurity.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
@@ -355,15 +411,21 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.GUI" />
       <item index="1" class="java.lang.String" itemvalue="Python.light test" />
       <item index="2" class="java.lang.String" itemvalue="Python.pixtest" />
+      <item index="3" class="java.lang.String" itemvalue="Python.MatrixReducer" />
+      <item index="4" class="java.lang.String" itemvalue="Python.setup" />
+      <item index="5" class="java.lang.String" itemvalue="Python.Scribcurity" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.pixtest" />
-        <item index="1" class="java.lang.String" itemvalue="Python.light test" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.MatrixReducer" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Scribcurity" />
+        <item index="2" class="java.lang.String" itemvalue="Python.setup" />
+        <item index="3" class="java.lang.String" itemvalue="Python.pixtest" />
+        <item index="4" class="java.lang.String" itemvalue="Python.light test" />
       </list>
     </recent_temporary>
   </component>
@@ -377,10 +439,15 @@
       <created>1415429772325</created>
       <updated>1415429772325</updated>
     </task>
+    <task id="LOCAL-00001" summary="Implementing GUI system.">
+      <created>1415749725713</created>
+      <updated>1415749725713</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -388,18 +455,19 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14568081" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3991323" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3383948" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10195228" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24918033" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -417,35 +485,57 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="Implementing GUI system." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing GUI system." />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <default-breakpoints>
+        <breakpoint suspend="NONE" type="python-exception">
+          <properties exception="BaseException" />
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Security.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2499">
-          <caret line="118" column="24" selection-start-line="118" selection-start-column="24" selection-end-line="118" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="2754">
+          <caret line="44" column="11" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
+          <folding>
+            <marker date="1415748840768" expanded="true" signature="81:703" placeholder="..." />
+            <marker date="1415748840768" expanded="true" signature="731:762" placeholder="..." />
+            <marker date="1415748840768" expanded="true" signature="2103:2138" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MatrixReducer/MatrixReducer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1581">
+          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scribcurity.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="1547">
+          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scrib-curity.py">
+    <entry file="file://$PROJECT_DIR$/GUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1241">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alarm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-          <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="3060">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -455,7 +545,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2499">
           <caret line="118" column="24" selection-start-line="118" selection-start-column="24" selection-end-line="118" selection-end-column="24" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1415748840768" expanded="true" signature="81:703" placeholder="..." />
+            <marker date="1415748840768" expanded="true" signature="731:762" placeholder="..." />
+            <marker date="1415748840768" expanded="true" signature="2103:2138" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -464,9 +556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1241">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -474,7 +563,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
           <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Security.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2499">
+          <caret line="118" column="24" selection-start-line="118" selection-start-column="24" selection-end-line="118" selection-end-column="24" />
+          <folding>
+            <marker date="1415748840768" expanded="true" signature="81:703" placeholder="..." />
+            <marker date="1415748840768" expanded="true" signature="731:762" placeholder="..." />
+            <marker date="1415748840768" expanded="true" signature="2103:2138" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scrib-curity.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1241">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alarm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+          <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -510,7 +624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
           <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -518,9 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1241">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -529,6 +639,25 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2754">
           <caret line="44" column="11" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
           <folding>
+            <marker date="1415748840768" expanded="true" signature="81:703" placeholder="..." />
+            <marker date="1415748840768" expanded="true" signature="731:762" placeholder="..." />
+            <marker date="1415748840768" expanded="true" signature="2103:2138" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/Windows (1)/Windows/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4744186" vertical-offset="0" max-vertical-offset="986">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scribcurity.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1547">
+          <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+          <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
@@ -536,27 +665,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../MatrixReducer/MatrixReducer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="683" max-vertical-offset="1564">
-          <caret line="45" column="36" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.8561151" vertical-offset="0" max-vertical-offset="1564">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42625" vertical-offset="985" max-vertical-offset="1887">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.16306955" vertical-offset="1479" max-vertical-offset="2992">
+          <caret line="91" column="63" selection-start-line="91" selection-start-column="63" selection-end-line="91" selection-end-column="63" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scribcurity.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6632782" vertical-offset="0" max-vertical-offset="1547">
-          <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

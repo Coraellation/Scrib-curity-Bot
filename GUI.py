@@ -1,8 +1,56 @@
 __author__ = 'Owner'
 
-import tkinter as tk
+import Tkinter as tk
 
-class GUI (object):
+class PasswordWindow:
+    def __init__(self, isGetType):
+        self.ready = False
+        self.window = tk.Tk()
+        self.password = tk.StringVar()
+        if isGetType:
+            self.createGetWindow()
+        else:
+            self.createSetWindow()
+
+    def createGetWindow(self):
+
+        frame = tk.Frame()
+        label = tk.Label(frame, text = "Enter your password, with a space between characters, and only L,C,R.").pack()
+        entry = tk.Entry(frame, textvariable = self.password)
+        entry.pack()
+        button = tk.Button(frame, text = "Set Password", command = self.readyToReturn).pack()
+        frame.pack()
+        #STUFF
+        self.window.mainloop()
+
+
+    def createSetWindow(self):
+
+        frame = tk.Frame()
+        label = tk.Label(frame, text = "Enter your password, with a space between characters, and only L,C,R.").pack()
+        entry = tk.Entry(frame, textvariable = self.password)
+        entry.pack()
+        button = tk.Button(frame, text = "Set Password", command = self.readyToReturn).pack()
+        frame.pack()
+        #STUFF
+
+        self.window.mainloop()
+
+    def readyToReturn(self):
+        self.ready = True
+        self.window.quit()
+
+    def returnPassword(self):
+        name = self.password.get().split()
+        return name
+
+    def destroy(self):
+        try:
+            self.window.destroy()
+        except tk.TclError:
+            pass
+
+class GUI:
     def __init__(self):
         self.firstRun = True
         self.isCheckPassword = False
@@ -13,8 +61,9 @@ class GUI (object):
         self.mainMenu() #Remove this for final call.
 
 
+
     def mainMenu(self):
-        menu = tk.Tk().wm_title("Main Menu")
+        self.menu = tk.Tk()
 
         buttonFrame = tk.Frame()
         if self.firstRun:
@@ -49,46 +98,62 @@ class GUI (object):
                                state = deactivateStatus).pack()
 
         buttonFrame.pack()
-        tk.mainloop()
+        self.menu.mainloop()
 
     def setPassword(self):
+        self.menu.destroy()
         self.isSetPassword = True
 
-        window = tk.Tk().wm_title("Set Your Password")
-        frame = tk.Frame()
-        label = tk.Label(frame, text = "Enter your password, using no spaces, and only L,C,R.").pack()
-        entry = tk.Entry(frame).pack()
-        button = tk.Button(frame, text = "Set Password", command = ).pack()
-        frame.pack()
-        #STUFF
-        tk.mainloop()
+        window = PasswordWindow(0)
+        newPass = window.returnPassword()
+        print (newPass)
+
+        window.destroy()
 
         self.isSetPassword = False
+        self.mainMenu()
 
-    def checkPassword(self):
+        return newPass
+
+
+
+
+    def checkPassword(self, password = None):
+        self.menu.destroy()
         self.isCheckPassword = True
 
-        #STUFF
+        window = PasswordWindow(1)
+        if window == password:
+            window.destroy()
+            self.mainMenu()
+            self.isCheckPassword = False
+            return True
+        else:
+            window.destroy()
+            self.mainMenu()
+            self.isCheckPassword = False
+            return False
 
-        self.isCheckPassword = False
+
 
     def activate(self):
+        self.menu.destroy()
         self.isActivated = not self.isActivated
         self.wantActivation = True
 
 
-        #STUFF
-
+        wait(1)
         self.wantActivation = False
+        self.mainMenu()
 
     def deactivate(self):
+        self.menu.destroy()
         self.wantDeactivation = True
         self.isActivated = not self.isActivated
 
-        #STUFF
-
-
+        wait(1)
         self.wantDeactivation = False
+        self.mainMenu()
 
     def getSetPassword(self):
         return self.isSetPassword

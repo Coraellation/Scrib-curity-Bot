@@ -14,7 +14,7 @@ class Scribcurity:
             if (getLight("left") > self.security.getLeftS() or getLight("center") > self.security.getCenterS() or getLight("right") > self.security.getRightS()):
                 self.security.setPassword()
                 break
-            elif self.gui.getSetPassword()t
+            elif self.gui.getSetPassword():
                 self.security.setGUIPassword(self.gui.setPassword())
                 break
         self.deactivated()
@@ -41,7 +41,7 @@ class Scribcurity:
                     speak("You have been locked out.")
             elif self.gui.getCheckPassword():
                 if not self.security.getLockedOut():
-                    if self.gui.checkPassword(self.security.getPassword())
+                    if self.gui.checkPassword(self.security.getPassword()):
                         deactivated()
                     else:
                         self.security.wrongPassword()
