@@ -21,6 +21,8 @@ class PasswordWindow:
         button = tk.Button(frame, text = "Set Password", command = self.readyToReturn).pack()
         frame.pack()
         #STUFF
+        self.window.title("Scribcurity Password Creation")
+        self.window.geometry("800x500+320+220")
         self.window.mainloop()
 
 
@@ -33,7 +35,8 @@ class PasswordWindow:
         button = tk.Button(frame, text = "Set Password", command = self.readyToReturn).pack()
         frame.pack()
         #STUFF
-
+        self.window.title("Scribcurity Password Creation")
+        self.window.geometry("800x500+320+220")
         self.window.mainloop()
 
     def readyToReturn(self):
@@ -64,6 +67,11 @@ class GUI:
 
     def mainMenu(self):
         self.menu = tk.Tk()
+
+        logoFrame = tk.Frame()
+        logo = tk.PhotoImage(file="logo.gif")
+        showLogo = tk.Label(logoFrame, image = logo).pack()
+        logoFrame.pack()
 
         buttonFrame = tk.Frame()
         if self.firstRun:
@@ -98,6 +106,9 @@ class GUI:
                                state = deactivateStatus).pack()
 
         buttonFrame.pack()
+
+        self.menu.title("Scribcurity Welcome Page")
+        self.menu.geometry("800x500+320+220")
         self.menu.mainloop()
 
     def setPassword(self):
