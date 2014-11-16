@@ -58,6 +58,7 @@ class PasswordWindow:
         self.window.geometry("800x500+320+220")
         self.window.mainloop()
 
+    #------------------------ HELPERS ---------------------------------
     def readyToReturn(self):
         self.window.quit()
 
@@ -129,7 +130,7 @@ class GUI:
 
         activate = tk.Button(buttonFrame, text = "Activate Security", command = self.activate,
                              state = activateStatus, padx = 20, pady = 40).pack(side = LEFT)
-        deactivate = tk.Button(buttonFrame, text = "Decactivate Security", command = self.deactivate,
+        deactivate = tk.Button(buttonFrame, text = "Deactivate Security", command = self.deactivate,
                                state = deactivateStatus, padx = 10, pady = 40).pack(side = LEFT)
 
         buttonFrame.pack()
