@@ -2,12 +2,13 @@ from myro import *
 import time
 
 
+# noinspection PyPep8Naming,PyMethodMayBeStatic
 class Security:
     def __init__(self):
-        '''
+        """
         initializes the Security class
         :return: nothing
-        '''
+        """
         #Times
         self.__startTime = time.time()
         self.__errorTime = 0
@@ -30,16 +31,16 @@ class Security:
         return self.__password
 
     def getLeftS(self):
-        '''
+        """
         :return: sensitivity of the left light sensor.
-        '''
+        """
         return self.__leftS
 
     def getCenterS(self):
-        '''
+        """
 
         :return: sensitivity of the center light sensor.
-        '''
+        """
         return self.__centerS
 
     def getRightS(self):
@@ -50,19 +51,20 @@ class Security:
         return self.__rightS
 
     def returnLight(self, sensor = "all"):
-        '''
+        """
         :param sensor: "left", "center", or "right"
         :return: reading from that sensor
-        '''
+        """
         return getLight(sensor)
 
     def saySomething(self, message):
         speak(message)
 
     def setPassword(self):
-        '''Sets the password for the robot.
+        """
+        Sets the password for the robot.
         Takes no inputs and returns nothing.
-        '''
+        """
         #read left, middle, right sensors
         speak("Enter your six digit password", 0)
         self.__password = []
@@ -91,11 +93,11 @@ class Security:
         self.__password = password
 
     def checkPassword (self):
-        '''
+        """
         Checks if the password is correct.
 
         :return: 1 if the password is correct, 0 otherwise.
-        '''
+        """
         speak("Please enter your password.")
         for count in range(6):
             while 1:
@@ -126,31 +128,31 @@ class Security:
         return 1
 
     def getLockedOut(self):
-        '''
+        """
         :return: self.__locked out - boolean representing if the system is locked out or not
-        '''
+        """
 
         return self.__lockedOut
 
     def checkLockedOut(self):
-        '''
+        """
         Checks to see if the system is still locked out by comparing the
         difference in time between the time it was locked out and the current time.
         If it has been more than 10 minutes, it unlocks the robot.
         :return:
-        '''
+        """
 
         if time.time() - self.__lockOutTime > 600:
             self.__lockedOut = False
 
     def wrongPassword(self):
-        '''
+        """
         Runs if the password that was entered is incorrect.
         It increments the wrongTries counter, and if it is equal to 3,
         the robot is "locked-out" and any password attempts cannot be made
         for 10 minutes. It also resets the counter for the future.
         :return:
-        '''
+        """
 
         #Sets time of first error.
         if self.__wrongTries == 0:

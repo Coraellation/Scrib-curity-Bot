@@ -5,6 +5,7 @@ from Tkinter import *
 import Tkinter as tk
 import tkFont
 
+# noinspection PyPep8Naming,PyUnusedLocal
 class PasswordWindow:
     def __init__(self, isGetType):
         self.ready = False
@@ -72,6 +73,8 @@ class PasswordWindow:
         except tk.TclError:
             pass
 
+
+# noinspection PyUnusedLocal,PyPep8Naming
 class GUI:
     def __init__(self):
         self.firstRun = True
@@ -108,7 +111,7 @@ class GUI:
                       "it in on the robot directly if you'd like.\n"
             firstMessageFrame = tk.Frame()
             firstMessageFrame.config(bg=bgCol)
-            firstMessageLabel = tk.Label(firstMessageFrame, text = welcome, wraplength = 600, font=self.customFont, \
+            firstMessageLabel = tk.Label(firstMessageFrame, text = welcome, wraplength = 600, font=self.customFont,
                                          fg = 'black', bg = bgCol).pack()
             firstMessageFrame.pack()
 

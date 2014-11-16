@@ -54,9 +54,7 @@ class Scribcurity:
                 else:
                     self.security.saySomething("You have been locked out.")
 
-
             self.security.checkLockedOut()
-
 
     def deactivated(self):
         """
