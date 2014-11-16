@@ -81,8 +81,9 @@ class GUI:
         self.isSetPassword = False
         self.isActivated = False
         self.password = []
-        self.mainMenu() #Remove this for final call.
         self.security = secObj
+        self.mainMenu() #Remove this for final call.
+
 
     def mainMenu(self):
         bgCol = '#cf2d27'
