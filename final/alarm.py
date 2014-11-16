@@ -1,7 +1,12 @@
+## IMPORTANT IMPORTS
+
 from myro import *
 import math
 import time
 
+init("COM6")
+
+## GLOBAL VARIABLES
 xlow = 0
 xhigh = 0
 ylow = 0
@@ -11,6 +16,7 @@ black1 = 0
 frametol = 10
 thieftol = 100
 i=0
+f = 0.1
 alarmtime = 50
 
 def placeObjects():
@@ -25,7 +31,6 @@ def placeObjects():
     black0 = countBlack(picture)
 
 def setBounds():
-    init("COM6")
     configureBlob(200, 255, 100, 150, 100, 150)
     picture = takePicture("blob")
     savePicture(picture, "first.jpg")
@@ -84,24 +89,28 @@ def alarmIterate():
     print("i = " + str(i) + "; black0=" + str(black0) + "; black1=" + str(black1))
     if (black0 - black1 > thieftol):
         speak("You took something!")
+        for w in range (0,4):
+            alarmSound()
     #if (black1 - black0 > thieftol):
     #    speak("you put something back")
     black0 = black1-30
     i+=1
 
 def alarmSound():
-    speak("I will find you")
     beep(f, 2903, 1975.53)
     beep(f, 2093, 1864.66)
     beep(f, 2093, 1760)
     beep(f, 2093, 1661.22)
 
-
+##  EVERYTHING STARTS HERE 
+## these functions must be called.
 setBounds()
 placeObjects()
 start = time.time()
 now = time.time()
-speak("alarm activated for forty seconds.")
+speak("alarm activated.")
+# alarmiterate() is the function that takes pictures and sees if objects have been taken. right now the function call is sitting in a while loop that runs for 40 seconds.
+# if we want to break out of the loop when the user deactivates the security the while loop has to be changed. probably should add a break statement in the loop too.
 while (now - start < alarmtime):
     alarmIterate()
     now = time.time()
