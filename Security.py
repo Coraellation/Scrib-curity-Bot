@@ -2,7 +2,7 @@ from myro import *
 import time
 
 
-class Security (object):
+class Security:
     def __init__(self):
         '''
         initializes the Security class
@@ -47,6 +47,13 @@ class Security (object):
         :return: sensitivity of the right light sensor.
         """
         return self.__rightS
+
+    def returnLight(self, sensor = "all"):
+        '''
+        :param sensor: "left", "center", or "right"
+        :return: reading from that sensor
+        '''
+        return getLight(sensor)
 
     def setPassword(self):
         '''Sets the password for the robot.

@@ -1,7 +1,6 @@
 __author__ = 'Owner'
 
 from Tkinter import *
-from myro import *
 
 import Tkinter as tk
 import tkFont
@@ -12,7 +11,6 @@ class PasswordWindow:
         self.window = tk.Tk()
         self.password = tk.StringVar()
         self.customFont = tkFont.Font(family="Helvetica light", size=16)
-        init("COM6")
         if isGetType:
             self.createGetWindow()
         else:
@@ -77,18 +75,20 @@ class PasswordWindow:
 class GUI:
     def __init__(self):
         self.firstRun = True
-
         self.isCheckPassword = False
         self.isSetPassword = False
         self.isActivated = False
         self.wantActivation = False
         self.wantDeactivation = True
-        self.mainMenu() #Remove this for final call.
+        #self.mainMenu() #Remove this for final call.
 
 
     def mainMenu(self):
         bgCol = '#cf2d27'
         bgCol = '#ffffff'
+
+        self.wantDeactivation = False
+        self.wantActivation = False
         self.menu = tk.Tk()
         self.menu.configure(bg = bgCol)
 
@@ -181,9 +181,7 @@ class GUI:
         self.isActivated = not self.isActivated
         self.wantActivation = True
 
-
-        wait(1)
-        self.wantActivation = False
+        time.sleep(1)
         self.mainMenu()
 
     def deactivate(self):
@@ -191,8 +189,7 @@ class GUI:
         self.wantDeactivation = True
         self.isActivated = not self.isActivated
 
-        wait(1)
-        self.wantDeactivation = False
+        time.sleep(1)
         self.mainMenu()
 
     def getSetPassword(self):

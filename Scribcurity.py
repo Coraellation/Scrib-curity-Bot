@@ -1,6 +1,7 @@
-from myro import *
 import Security
 import GUI
+import time
+
 
 
 class Scribcurity:
@@ -8,12 +9,14 @@ class Scribcurity:
         self.security = Security.Security()
         self.gui = GUI.GUI()
 
-        init("COM3")
         #OR GUI ACTIVATION...
         speak ("You can now set your password on the Robot or via the GUI. To set it on the robot, use any sensor.")
         while True:
-            wait(0.5)
-            if (getLight("left") < self.security.getLeftS() or getLight("center") < self.security.getCenterS() or getLight("right") < self.security.getRightS()):
+            time.sleep(0.1)
+            if (self.security.returnLight("left") < self.security.getLeftS()
+                or self.security.returnLight("center") < self.security.getCenterS()
+                or self.security.returnLight("right") < self.security.getRightS()):
+
                 self.security.setPassword()
                 break
             elif self.gui.getSetPassword():
@@ -29,10 +32,10 @@ class Scribcurity:
         speak("Security is now activated, to deactivate, cover the left light sensor.")
 
         #If the left sensor is covered, go to password entry.
-        while (1):
-            wait(0.5)
-            print getLight()
-            if getLight ("left") < self.security.getLeftS():
+        while True:
+            time.sleep(0.1)
+            print self.security.returnLight()
+            if self.security.returnLight ("left") < self.security.getLeftS():
                 #If it's not locked out, it allows for deactivation
                 if not self.security.getLockedOut():
                     if self.security.checkPassword():
@@ -65,13 +68,13 @@ class Scribcurity:
         speak("To change password, cover the center light sensor.", 0)
 
         while(1):
-            wait(0.5)
+            time.sleep(0.1)
             #If the left sensor is covered, it activates
-            if getLight("left") < self.security.getLeftS() or self.gui.getWantActivation():
+            if self.security.returnLight("left") < self.security.getLeftS() or self.gui.getWantActivation():
                 self.activated()
 
             #If the center sensor is covered, you can change your password
-            if getLight("center") < self.security.getCenterS():
+            if self.security.returnLight("center") < self.security.getCenterS():
                 if self.security.checkPassword():
                     self.security.setPassword()
                 else:
