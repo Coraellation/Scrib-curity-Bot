@@ -1,5 +1,6 @@
 from myro import *
 import Security
+import GUI
 
 
 class Scribcurity:
@@ -34,7 +35,7 @@ class Scribcurity:
                 #If it's not locked out, it allows for deactivation
                 if not self.security.getLockedOut():
                     if self.security.checkPassword():
-                        deactivated()
+                        self.deactivated()
                     else:
                         self.security.wrongPassword()
                 else:
@@ -42,7 +43,7 @@ class Scribcurity:
             elif self.gui.getCheckPassword():
                 if not self.security.getLockedOut():
                     if self.gui.checkPassword(self.security.getPassword()):
-                        deactivated()
+                        self.deactivated()
                     else:
                         self.security.wrongPassword()
                 else:
@@ -66,7 +67,7 @@ class Scribcurity:
             wait(0.5)
             #If the left sensor is covered, it activates
             if getLight("left") < self.security.getLeftS() or self.gui.getWantActivation():
-                activated()
+                self.activated()
 
             #If the center sensor is covered, you can change your password
             if getLight("center") < self.security.getCenterS():
