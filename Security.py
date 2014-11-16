@@ -23,8 +23,8 @@ class Security:
         self.__centerS = 50000
         self.__rightS = 50000
         self.__password = []
-        init ("/dev/tty.Fluke2-0521-Fluke2")
-        #init("COM3")
+        #init ("/dev/tty.Fluke2-0521-Fluke2")
+        init("COM3")
 
     def getPassword(self):
         return self.__password
@@ -55,6 +55,9 @@ class Security:
         :return: reading from that sensor
         '''
         return getLight(sensor)
+
+    def saySomething(self, message):
+        speak(message)
 
     def setPassword(self):
         '''Sets the password for the robot.

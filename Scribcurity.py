@@ -10,7 +10,7 @@ class Scribcurity:
         self.gui = GUI.GUI()
 
         #OR GUI ACTIVATION...
-        speak ("You can now set your password on the Robot or via the GUI. To set it on the robot, use any sensor.")
+        self.security.saySomething ("You can now set your password on the Robot or via the GUI. To set it on the robot, use any sensor.")
         while True:
             time.sleep(0.1)
             if (self.security.returnLight("left") < self.security.getLeftS()
@@ -25,11 +25,12 @@ class Scribcurity:
         self.deactivated()
 
     def activated(self):
-        '''This runs while the robot is activated.
+        """
+        This runs while the robot is activated.
         It checks to see if the user wants to deactivate the system.
-        '''
+        """
         #insert sensor checking for objects
-        speak("Security is now activated, to deactivate, cover the left light sensor.")
+        self.security.saySomething("Security is now activated, to deactivate, cover the left light sensor.")
 
         #If the left sensor is covered, go to password entry.
         while True:
@@ -43,7 +44,7 @@ class Scribcurity:
                     else:
                         self.security.wrongPassword()
                 else:
-                    speak("You have been locked out.")
+                    self.security.saySomething("You have been locked out.")
             elif self.gui.getCheckPassword():
                 if not self.security.getLockedOut():
                     if self.gui.checkPassword(self.security.getPassword()):
@@ -51,23 +52,24 @@ class Scribcurity:
                     else:
                         self.security.wrongPassword()
                 else:
-                    speak("You have been locked out.")
+                    self.security.saySomething("You have been locked out.")
 
 
             self.security.checkLockedOut()
 
 
     def deactivated(self):
-        '''This runs while the robot is deactivated.
+        """
+        This runs while the robot is deactivated.
         Checks to see if the user wants to activate the system
         or change the password.
-        '''
+        """
 
-        speak("The robot is ready to be activated.", 0)
-        speak("To activate, cover left light sensor.", 0)
-        speak("To change password, cover the center light sensor.", 0)
+        self.security.saySomething("The robot is ready to be activated.")
+        self.security.saySomething("To activate, cover left light sensor.")
+        self.security.saySomething("To change password, cover the center light sensor.")
 
-        while(1):
+        while True:
             time.sleep(0.1)
             #If the left sensor is covered, it activates
             if self.security.returnLight("left") < self.security.getLeftS() or self.gui.getWantActivation():
