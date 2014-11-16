@@ -75,14 +75,14 @@ class PasswordWindow:
 
 # noinspection PyUnusedLocal,PyPep8Naming
 class GUI:
-    def __init__(self):
+    def __init__(self, secObj):
         self.firstRun = True
         self.isCheckPassword = False
         self.isSetPassword = False
         self.isActivated = False
         self.password = []
         self.mainMenu() #Remove this for final call.
-
+        self.security = secObj
 
     def mainMenu(self):
         bgCol = '#cf2d27'
@@ -153,23 +153,23 @@ class GUI:
         newPass = window.returnPassword()
         print (newPass)
         self.programPassword(newPass)
-
+        self.security.programPassword(newPass)
         window.destroy()
 
         self.isSetPassword = False
         self.mainMenu()
 
-        return newPass
-
-
     def checkPassword(self):
         self.closeMenu()
 
-        self.isCheckPassword = True
+        if not self.security.getLockedOut():
+            self.security.saySomething("You are currently locked out.")
+            return False
 
         window = PasswordWindow(1)
         newPass = window.returnPassword()
         print newPass
+        self.security.checkLockedOut()
         if newPass == self.password:
             window.destroy()
             self.isCheckPassword = False
@@ -178,6 +178,7 @@ class GUI:
         else:
             window.destroy()
             self.isCheckPassword = False
+            self.security.wrongPassword()
             return False
 
     def changePassword(self):
@@ -205,4 +206,5 @@ class GUI:
     def programPassword(self, password):
         self.password = password
 
-gui = GUI()
+    def returnPassword(self):
+        return self.password

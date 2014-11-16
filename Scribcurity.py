@@ -15,8 +15,7 @@ class Scribcurity:
         :return:
         """
         self.security = Security.Security()
-        self.gui = GUI.GUI()
-        self.activationStatus = False
+        self.gui = GUI.GUI(self.security)
 
         #OR GUI ACTIVATION...
         self.security.saySomething (
@@ -33,8 +32,8 @@ class Scribcurity:
                 self.gui.programPassword(self.security.returnPassword())
                 break
             #If the user sets it using the GUI.
-            elif self.gui.getSetPassword():
-                self.security.programPassword(self.gui.setPassword())
+            elif self.gui.returnPassword():
+                self.security.programPassword(self.gui.returnPassword())
                 break
 
         self.deactivated()
@@ -44,9 +43,7 @@ class Scribcurity:
         This runs while the robot is activated.
         It checks to see if the user wants to deactivate the system.
         """
-        self.activationStatus = True
         self.security.saySomething("Security is now activated, to deactivate, light up the left light sensor.")
-
 
         while True:
             time.sleep(0.1)
@@ -56,23 +53,12 @@ class Scribcurity:
                 #If it's not locked out, it allows for deactivation
                 if not self.security.getLockedOut():
                     if self.security.checkPassword():
+                        self.gui.deactivate()
                         self.deactivated()
                     else:
                         self.security.wrongPassword()
                 else:
                     self.security.saySomething("You have been locked out.")
-
-            #If the user clicks "Deactivate"
-            elif self.gui.getCheckPassword():
-                #If it's not locked out, it allows for deactivation
-                if not self.security.getLockedOut():
-                    if self.gui.checkPassword():
-                        self.deactivated()
-                    else:
-                        self.security.wrongPassword()
-                else:
-                    self.security.saySomething("You have been locked out.")
-
             self.security.checkLockedOut()
 
     def deactivated(self):
@@ -89,26 +75,21 @@ class Scribcurity:
         while True:
             time.sleep(0.1)
             #If the left sensor is lit, it activates.
-            if self.security.returnLight("left") < self.security.getLeftS() or self.gui.isActivated():
+            if self.security.returnLight("left") < self.security.getLeftS() and not self.gui.isActivated:
                 self.activated()
-
+                self.gui.activate()
+            elif self.gui.isActivated:
+                self.activated()
             #If the center sensor is lit, you can change your password
-            if self.security.returnLight("center") < self.security.getCenterS():
+            if self.security.returnLight("center") < self.security.getCenterS() and not self.security.getLockedOut():
                 #If the password is correct, sets the password.
                 if self.security.checkPassword():
                     self.security.setPassword()
+                    self.gui.programPassword(self.security.returnPassword())
                 #Otherwise, reactivate security.
                 else:
                     self.security.wrongPassword()
                     self.activated()
-            #If the user hits "Change Password" on the GUI
-            elif self.gui.getCheckPassword():
-                #If the password is correct, sets the password.
-                if self.gui.checkPassword():
-                    self.security.programPassword(self.gui.setPassword())
-
-                else:
-                    self.security.wrongPassword()
-                    self.activated()
+        self.security.checkLockedOut()
 
 scribcurity = Scribcurity()
