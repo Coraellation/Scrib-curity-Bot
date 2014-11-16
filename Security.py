@@ -72,7 +72,7 @@ class Security (object):
                 self.__password.append("R")
                 print getLight("right")
                 beep(.5, 1200)
-        print password
+        print self.__password
 
         speak("your password has been set", 0)
 
