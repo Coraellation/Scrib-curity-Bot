@@ -20,17 +20,22 @@ class Scribcurity:
 
         #OR GUI ACTIVATION...
         self.security.saySomething ("You can now set your password on the Robot or via the GUI. To set it on the robot, use any sensor.")
+
+        #Check to see if user wants to set password
         while True:
             time.sleep(0.1)
+            #If a light is detected at any sensor, set using the Scribbler
             if (self.security.returnLight("left") < self.security.getLeftS()
                 or self.security.returnLight("center") < self.security.getCenterS()
                 or self.security.returnLight("right") < self.security.getRightS()):
-
                 self.security.setPassword()
+                self.gui.programPassword(self.security.returnPassword())
                 break
+            #If the user sets it using the GUI.
             elif self.gui.getSetPassword():
-                self.security.setGUIPassword(self.gui.setPassword())
+                self.security.programPassword(self.gui.setPassword())
                 break
+
         self.deactivated()
 
     def activated(self):
@@ -39,13 +44,13 @@ class Scribcurity:
         It checks to see if the user wants to deactivate the system.
         """
         self.activationStatus = True
-        #insert sensor checking for objects
-        self.security.saySomething("Security is now activated, to deactivate, cover the left light sensor.")
+        self.security.saySomething("Security is now activated, to deactivate, light up the left light sensor.")
 
-        #If the left sensor is covered, go to password entry.
+
         while True:
             time.sleep(0.1)
-            print self.security.returnLight()
+
+            #If the left sensor is covered, go to password entry.
             if self.security.returnLight ("left") < self.security.getLeftS():
                 #If it's not locked out, it allows for deactivation
                 if not self.security.getLockedOut():
@@ -55,9 +60,12 @@ class Scribcurity:
                         self.security.wrongPassword()
                 else:
                     self.security.saySomething("You have been locked out.")
+
+            #If the user clicks "Deactivate"
             elif self.gui.getCheckPassword():
+                #If it's not locked out, it allows for deactivation
                 if not self.security.getLockedOut():
-                    if self.gui.checkPassword(self.security.getPassword()):
+                    if self.gui.checkPassword():
                         self.deactivated()
                     else:
                         self.security.wrongPassword()
@@ -73,26 +81,31 @@ class Scribcurity:
         or change the password.
         """
 
-        self.security.saySomething("The robot is ready to be activated.")
+        self.security.saySomething("The robot is currently deactivated.")
         self.security.saySomething("To activate, cover left light sensor.")
         self.security.saySomething("To change password, cover the center light sensor.")
 
         while True:
             time.sleep(0.1)
-            #If the left sensor is covered, it activates
+            #If the left sensor is lit, it activates.
             if self.security.returnLight("left") < self.security.getLeftS() or self.gui.isActivated():
                 self.activated()
 
-            #If the center sensor is covered, you can change your password
+            #If the center sensor is lit, you can change your password
             if self.security.returnLight("center") < self.security.getCenterS():
+                #If the password is correct, sets the password.
                 if self.security.checkPassword():
                     self.security.setPassword()
+                #Otherwise, reactivate security.
                 else:
                     self.security.wrongPassword()
                     self.activated()
+            #If the user hits "Change Password" on the GUI
             elif self.gui.getCheckPassword():
-                if self.gui.checkPassword(self.security.getPassword()):
-                    self.security.setGUIPassword(self.gui.setPassword())
+                #If the password is correct, sets the password.
+                if self.gui.checkPassword():
+                    self.security.programPassword(self.gui.setPassword())
+
                 else:
                     self.security.wrongPassword()
                     self.activated()

@@ -8,7 +8,6 @@ import tkFont
 # noinspection PyPep8Naming,PyUnusedLocal
 class PasswordWindow:
     def __init__(self, isGetType):
-        self.ready = False
         self.window = tk.Tk()
         self.password = tk.StringVar()
         self.customFont = tkFont.Font(family="Helvetica light", size=16)
@@ -28,7 +27,7 @@ class PasswordWindow:
         label = tk.Label(frame, text = "Enter your password, with a space between characters, and only L,C,R.").pack()
         entry = tk.Entry(frame, textvariable = self.password)
         entry.pack()
-        button = tk.Button(frame, text = "Set Password", command = self.readyToReturn, padx = 30, pady = 40).pack()
+        button = tk.Button(frame, text = "Check Password", command = self.readyToReturn, padx = 30, pady = 40).pack()
         frame.pack()
         #STUFF
         self.window.title("Scribcurity Password Creation")
@@ -60,7 +59,6 @@ class PasswordWindow:
         self.window.mainloop()
 
     def readyToReturn(self):
-        self.ready = True
         self.window.quit()
 
     def returnPassword(self):
@@ -81,7 +79,8 @@ class GUI:
         self.isCheckPassword = False
         self.isSetPassword = False
         self.isActivated = False
-        #self.mainMenu() #Remove this for final call.
+        self.password = []
+        self.mainMenu() #Remove this for final call.
 
 
     def mainMenu(self):
@@ -120,12 +119,12 @@ class GUI:
         elif self.isActivated:
             activateStatus = "disabled"
             deactivateStatus = "normal"
-            password = tk.Button(buttonFrame, text = "Change Password", command = self.checkPassword,padx = 20, pady = 40).pack(side = LEFT)
+            password = tk.Button(buttonFrame, text = "Change Password", command = self.changePassword,padx = 20, pady = 40).pack(side = LEFT)
 
         else:
             activateStatus = "normal"
             deactivateStatus = "disabled"
-            password = tk.Button(buttonFrame, text = "Change Password", command = self.checkPassword, padx = 20, pady = 40).pack(side = LEFT)
+            password = tk.Button(buttonFrame, text = "Change Password", command = self.changePassword, padx = 20, pady = 40).pack(side = LEFT)
 
 
         activate = tk.Button(buttonFrame, text = "Activate Security", command = self.activate,
@@ -139,13 +138,20 @@ class GUI:
         self.menu.geometry("800x500+320+220")
         self.menu.mainloop()
 
+    def closeMenu(self):
+        try:
+            self.menu.destroy()
+        except TclError:
+            pass
+
     def setPassword(self):
-        self.menu.destroy()
+        self.closeMenu()
         self.isSetPassword = True
 
         window = PasswordWindow(0)
         newPass = window.returnPassword()
         print (newPass)
+        self.programPassword(newPass)
 
         window.destroy()
 
@@ -155,43 +161,47 @@ class GUI:
         return newPass
 
 
+    def checkPassword(self):
+        self.closeMenu()
 
-
-    def checkPassword(self, password = None):
-        self.menu.destroy()
         self.isCheckPassword = True
 
         window = PasswordWindow(1)
-        if window == password:
+        newPass = window.returnPassword()
+        print newPass
+        if newPass == self.password:
             window.destroy()
-            self.mainMenu()
             self.isCheckPassword = False
             return True
+
         else:
             window.destroy()
-            self.mainMenu()
             self.isCheckPassword = False
             return False
 
+    def changePassword(self):
+        self.closeMenu()
 
+        if self.checkPassword():
+            self.setPassword()
+        else:
+            self.activate()
 
     def activate(self):
-        self.menu.destroy()
-        self.isActivated = not self.isActivated
+        self.closeMenu()
+        self.isActivated = True
         self.mainMenu()
 
     def deactivate(self):
-        self.menu.destroy()
-        self.isActivated = not self.isActivated
+        self.closeMenu()
+        if self.checkPassword():
+            self.isActivated = False
         self.mainMenu()
-
-    def getSetPassword(self):
-        return self.isSetPassword
-
-    def getCheckPassword(self):
-        return self.isCheckPassword
 
     def getActivated(self):
         return self.isActivated
+
+    def programPassword(self, password):
+        self.password = password
 
 gui = GUI()

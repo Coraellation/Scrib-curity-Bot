@@ -32,7 +32,7 @@ class Security:
         #init ("/dev/tty.Fluke2-0521-Fluke2")
         init("COM3")
 
-    def getPassword(self):
+    def returnPassword(self):
         return self.__password
 
     def getLeftS(self):
@@ -94,7 +94,7 @@ class Security:
 
         speak("your password has been set", 0)
 
-    def setGUIPassword(self, password):
+    def programPassword(self, password):
         """
         Sets the password from an external source (GUI)
         :param password: the password to be set - an array of 6 strings.
