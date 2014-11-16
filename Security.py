@@ -23,7 +23,8 @@ class Security (object):
         self.__centerS = 50000
         self.__rightS = 50000
         self.__password = []
-        init("COM3")
+        init ("/dev/tty.Fluke2-0521-Fluke2")
+        #init("COM3")
 
     def getPassword(self):
         return self.__password

@@ -8,7 +8,8 @@ class Scribcurity:
         self.security = Security.Security()
         self.gui = GUI.GUI()
 
-        init("COM3")
+        init("/dev/tty.Fluke2-0521-Fluke2")
+        #init("COM3")
         #OR GUI ACTIVATION...
         speak ("You can now set your password on the Robot or via the GUI. To set it on the robot, use any sensor.")
         while True:
