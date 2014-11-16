@@ -16,6 +16,7 @@ class Scribcurity:
         """
         self.security = Security.Security()
         self.gui = GUI.GUI()
+        self.activationStatus = False
 
         #OR GUI ACTIVATION...
         self.security.saySomething ("You can now set your password on the Robot or via the GUI. To set it on the robot, use any sensor.")
@@ -37,6 +38,7 @@ class Scribcurity:
         This runs while the robot is activated.
         It checks to see if the user wants to deactivate the system.
         """
+        self.activationStatus = True
         #insert sensor checking for objects
         self.security.saySomething("Security is now activated, to deactivate, cover the left light sensor.")
 
@@ -78,7 +80,7 @@ class Scribcurity:
         while True:
             time.sleep(0.1)
             #If the left sensor is covered, it activates
-            if self.security.returnLight("left") < self.security.getLeftS() or self.gui.getWantActivation():
+            if self.security.returnLight("left") < self.security.getLeftS() or self.gui.isActivated():
                 self.activated()
 
             #If the center sensor is covered, you can change your password

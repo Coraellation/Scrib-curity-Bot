@@ -81,8 +81,6 @@ class GUI:
         self.isCheckPassword = False
         self.isSetPassword = False
         self.isActivated = False
-        self.wantActivation = False
-        self.wantDeactivation = True
         #self.mainMenu() #Remove this for final call.
 
 
@@ -90,8 +88,6 @@ class GUI:
         bgCol = '#cf2d27'
         bgCol = '#ffffff'
 
-        self.wantDeactivation = False
-        self.wantActivation = False
         self.menu = tk.Tk()
         self.menu.configure(bg = bgCol)
 
@@ -182,17 +178,11 @@ class GUI:
     def activate(self):
         self.menu.destroy()
         self.isActivated = not self.isActivated
-        self.wantActivation = True
-
-        time.sleep(1)
         self.mainMenu()
 
     def deactivate(self):
         self.menu.destroy()
-        self.wantDeactivation = True
         self.isActivated = not self.isActivated
-
-        time.sleep(1)
         self.mainMenu()
 
     def getSetPassword(self):
@@ -201,10 +191,7 @@ class GUI:
     def getCheckPassword(self):
         return self.isCheckPassword
 
-    def getWantActivation(self):
-        return self.wantActivation
-
-    def getWantDeactivation(self):
-        return self.wantDeactivation
+    def getActivated(self):
+        return self.isActivated
 
 gui = GUI()
