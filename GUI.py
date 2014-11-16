@@ -19,11 +19,15 @@ class PasswordWindow:
     def createGetWindow(self):
 
         frame = tk.Frame()
+        logoFrame = tk.Frame()
+        img = tk.PhotoImage(file="passConfig.gif")
+        showLogo = tk.Label(logoFrame, image = img).pack()
+        logoFrame.pack()
 
         label = tk.Label(frame, text = "Enter your password, with a space between characters, and only L,C,R.").pack()
         entry = tk.Entry(frame, textvariable = self.password)
         entry.pack()
-        button = tk.Button(frame, text = "Set Password", command = self.readyToReturn).pack()
+        button = tk.Button(frame, text = "Set Password", command = self.readyToReturn, padx = 30, pady = 40).pack()
         frame.pack()
         #STUFF
         self.window.title("Scribcurity Password Creation")
@@ -35,10 +39,19 @@ class PasswordWindow:
     def createSetWindow(self):
 
         frame = tk.Frame()
+        logoFrame = tk.Frame()
+        img = tk.PhotoImage(file="passConfig.gif")
+        showLogo = tk.Label(logoFrame, image = img).pack()
+        logoFrame.pack()
         label = tk.Label(frame, text = "Enter your password, with a space between characters, and only L,C,R.").pack()
+
+
+
         entry = tk.Entry(frame, textvariable = self.password)
         entry.pack()
-        button = tk.Button(frame, text = "Set Password", command = self.readyToReturn).pack()
+        errorLabel = tk.Label (frame, text = "Error. Your password must only contain L, C, or R").pack()
+
+        button = tk.Button(frame, text = "Set Password", command = self.readyToReturn, padx = 30, pady = 40).pack()
         frame.pack()
         #STUFF
         self.window.title("Scribcurity Password Creation")
@@ -90,7 +103,7 @@ class GUI:
             welcome = "Welcome to the Scribcurity bot user interface! You can interact with the bot" \
                       " using this computer or using the robot's sensors. For now, let's set a password " \
                       "for the robot. Click below to set it using the computer, or you can start typing " \
-                      "it in on the robot directly if you'd like."
+                      "it in on the robot directly if you'd like.\n"
             firstMessageFrame = tk.Frame()
             firstMessageFrame.config(bg=bgCol)
             firstMessageLabel = tk.Label(firstMessageFrame, text = welcome, wraplength = 600, font=self.customFont, \
