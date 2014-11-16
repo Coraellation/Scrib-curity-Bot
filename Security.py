@@ -4,6 +4,11 @@ import time
 
 # noinspection PyPep8Naming,PyMethodMayBeStatic
 class Security:
+    """
+    The Security class.
+    Manages password and security features.
+    Manages sensing technology as well.
+    """
     def __init__(self):
         """
         initializes the Security class
@@ -90,6 +95,11 @@ class Security:
         speak("your password has been set", 0)
 
     def setGUIPassword(self, password):
+        """
+        Sets the password from an external source (GUI)
+        :param password: the password to be set - an array of 6 strings.
+        :return: none.
+        """
         self.__password = password
 
     def checkPassword (self):

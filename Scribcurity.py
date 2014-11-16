@@ -5,7 +5,15 @@ import time
 
 
 class Scribcurity:
+    """
+    The Scribcurity class.
+    The "main" class of the system - incorporates both the GUI system as well as the Scribbler bot.
+    """
     def __init__(self):
+        """
+        Initializes the Scribcurity class.
+        :return:
+        """
         self.security = Security.Security()
         self.gui = GUI.GUI()
 
