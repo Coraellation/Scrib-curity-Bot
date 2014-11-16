@@ -19,7 +19,8 @@ class Scribcurity:
         self.activationStatus = False
 
         #OR GUI ACTIVATION...
-        self.security.saySomething ("You can now set your password on the Robot or via the GUI. To set it on the robot, use any sensor.")
+        self.security.saySomething (
+            "You can now set your password on the Robot or via the GUI. To set it on the robot, use any sensor.")
 
         #Check to see if user wants to set password
         while True:

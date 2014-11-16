@@ -28,42 +28,10 @@ class Security:
         self.__leftS = 50000
         self.__centerS = 50000
         self.__rightS = 50000
+
         self.__password = []
         #init ("/dev/tty.Fluke2-0521-Fluke2")
         init("COM3")
-
-    def returnPassword(self):
-        return self.__password
-
-    def getLeftS(self):
-        """
-        :return: sensitivity of the left light sensor.
-        """
-        return self.__leftS
-
-    def getCenterS(self):
-        """
-
-        :return: sensitivity of the center light sensor.
-        """
-        return self.__centerS
-
-    def getRightS(self):
-        """
-
-        :return: sensitivity of the right light sensor.
-        """
-        return self.__rightS
-
-    def returnLight(self, sensor = "all"):
-        """
-        :param sensor: "left", "center", or "right"
-        :return: reading from that sensor
-        """
-        return getLight(sensor)
-
-    def saySomething(self, message):
-        speak(message)
 
     def setPassword(self):
         """
@@ -71,7 +39,7 @@ class Security:
         Takes no inputs and returns nothing.
         """
         #read left, middle, right sensors
-        speak("Enter your six digit password", 0)
+        self.saySomething("Enter your six digit password")
         self.__password = []
 
         while len(self.__password) < 6:
@@ -108,7 +76,7 @@ class Security:
 
         :return: 1 if the password is correct, 0 otherwise.
         """
-        speak("Please enter your password.")
+        self.saySomething("Please enter your password.")
         for count in range(6):
             while 1:
                 wait(0.5)
@@ -117,26 +85,27 @@ class Security:
                         beep(.5, 800)
                         break
                     else:
-                        return 0
+                        return False
 
                 elif getLight("center") < self.getCenterS():
                     if self.__password[count] == "C":
                         beep(.5, 1000)
                         break
                     else:
-                        return 0
+                        return False
 
                 elif getLight("right") < self.getRightS():
                     if self.__password[count] == "R":
                         beep(.5, 1200)
                         break
                     else:
-                        return 0
+                        return False
         self.__wrongTries = 0
-        speak("Password entered successfully. Security deactivated.",0)
+        self.saySomething("Password entered successfully. Security deactivated.")
 
-        return 1
+        return True
 
+    #-------------------------------- LOCK OUT ------------------------------------
     def getLockedOut(self):
         """
         :return: self.__locked out - boolean representing if the system is locked out or not
@@ -163,17 +132,54 @@ class Security:
         for 10 minutes. It also resets the counter for the future.
         :return:
         """
+        self.saySomething("You have entered an incorrect password")
 
-        #Sets time of first error.
+        #If it's the first mistake - sets the time of the original mistake.
         if self.__wrongTries == 0:
             self.__errorTime = time.time()
 
         self.__wrongTries += 1
 
         if self.__wrongTries == 3 and (time.time() - self.__errorTime) < 600:
-            speak("You have entered an incorrect password three times. The robot will be locked out for 10 minutes.")
+            self.saySomething("You have entered an incorrect password three times. The robot will be locked out for 10 minutes.")
             self.__lockedOut = True
             self.__wrongTries = 0
 
-        speak("You have entered an incorrect password", 0)
 
+    #----------------------------------------- HELPERS ------------------------------------------
+    def returnPassword(self):
+        """
+
+        :return: password stored in the security file.
+        """
+        return self.__password
+
+    def getLeftS(self):
+        """
+        :return: sensitivity of the left light sensor.
+        """
+        return self.__leftS
+
+    def getCenterS(self):
+        """
+
+        :return: sensitivity of the center light sensor.
+        """
+        return self.__centerS
+
+    def getRightS(self):
+        """
+
+        :return: sensitivity of the right light sensor.
+        """
+        return self.__rightS
+
+    def returnLight(self, sensor = "all"):
+        """
+        :param sensor: "left", "center", or "right"
+        :return: reading from that sensor
+        """
+        return getLight(sensor)
+
+    def saySomething(self, message):
+        speak(message)
