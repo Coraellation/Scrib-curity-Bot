@@ -12,6 +12,7 @@ class Scribcurity:
         #OR GUI ACTIVATION...
         speak ("You can now set your password on the Robot or via the GUI. To set it on the robot, use any sensor.")
         while True:
+            wait(0.5)
             if (getLight("left") < self.security.getLeftS() or getLight("center") < self.security.getCenterS() or getLight("right") < self.security.getRightS()):
                 self.security.setPassword()
                 break
