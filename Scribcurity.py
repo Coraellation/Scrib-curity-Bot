@@ -68,7 +68,7 @@ class Scribcurity:
         while True:
             time.sleep(0.1)
             #If the left sensor is lit, it activates.
-            if self.security.returnLight("left") < self.security.getLeftS() and not self.gui.isActivated:
+            if self.security.returnLight("left") < self.security.getLeftS():
                 self.activated()
 
             #If the center sensor is lit, you can change your password
