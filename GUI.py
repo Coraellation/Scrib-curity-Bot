@@ -50,6 +50,7 @@ class PasswordWindow:
 
         entry = tk.Entry(frame, textvariable = self.password)
         entry.pack()
+
         errorLabel = tk.Label (frame, text = "Error. Your password must only contain L, C, or R").pack()
 
         button = tk.Button(frame, text = "Set Password", command = self.readyToReturn, padx = 30, pady = 40).pack()
