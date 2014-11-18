@@ -1,5 +1,6 @@
 from myro import *
 import time
+import alarm
 
 
 # noinspection PyPep8Naming,PyMethodMayBeStatic
@@ -25,9 +26,9 @@ class Security:
         self.__lockedOut = False
 
         #GLOBAL light variables (for sensitivity)
-        self.__leftS = 55000
-        self.__centerS = 58000
-        self.__rightS = 55000
+        self.__leftS = 60000
+        self.__centerS = 60000
+        self.__rightS = 60000
 
         self.__password = []
         #init ("/dev/tty.Fluke2-0521-Fluke2")
@@ -81,22 +82,22 @@ class Security:
             while 1:
                 wait(0.5)
                 if getLight("left") < self.getLeftS():
+                    beep(.5, 800)
                     if self.__password[count] == "L":
-                        beep(.5, 800)
                         break
                     else:
                         return False
 
                 elif getLight("center") < self.getCenterS():
+                    beep(.5, 1000)
                     if self.__password[count] == "C":
-                        beep(.5, 1000)
                         break
                     else:
                         return False
 
                 elif getLight("right") < self.getRightS():
+                    beep(.5, 1200)
                     if self.__password[count] == "R":
-                        beep(.5, 1200)
                         break
                     else:
                         return False
@@ -183,3 +184,10 @@ class Security:
 
     def saySomething(self, message):
         speak(message)
+
+    def startAlarm(self):
+        alarm.setBounds()
+        alarm.placeObjects()
+        while getLight("left") > self.getLeftS():
+            alarm.alarmIterate()
+
