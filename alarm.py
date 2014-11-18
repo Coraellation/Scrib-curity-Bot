@@ -4,7 +4,7 @@ from myro import *
 import math
 import time
 
-init("COM6")
+#init("COM6")
 
 ## GLOBAL VARIABLES
 xlow = 0
@@ -113,23 +113,8 @@ def alarmSound():
     beep(f, 2093, 1760)
     beep(f, 2093, 1661.22)
 
-def initCamera():
-    setBounds()
-    placeObjects()
-
-
-
 ##  EVERYTHING STARTS HERE 
 ## these functions must be called.
-setBounds()
-placeObjects()
-start = time.time()
-now = time.time()
-speak("alarm activated.")
-# alarmiterate() is the function that takes pictures and sees if objects have been taken. right now the function call is sitting in a while loop that runs for 40 seconds.
-# if we want to break out of the loop when the user deactivates the security the while loop has to be changed. probably should add a break statement in the loop too.
-while (now - start < alarmtime):
-    alarmIterate()
-    now = time.time()
-speak("alarm terminated")
+#setBounds()
+
 

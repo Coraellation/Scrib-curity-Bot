@@ -1,5 +1,6 @@
 import Security
 import time
+import alarm
 from myro import *
 
 
@@ -45,23 +46,22 @@ class Scribcurity:
         This runs while the robot is activated.
         It checks to see if the user wants to deactivate the system.
         """
-        self.security.saySomething("Security is now activated, to deactivate, light up the left light sensor.")
+        alarm.setBounds()
+        alarm.placeObjects()
+        while self.security.returnLight("left") > self.security.getLeftS():
+            alarm.alarmIterate()
+        #If the left sensor is covered, go to password entry.
+        beep(.5, 800)
+        #If it's not locked out, it allows for deactivation
+        if not self.security.getLockedOut():
+            if self.security.checkPassword():
+                self.deactivated()
+            else:
+                self.security.wrongPassword()
+        else:
+            self.security.saySomething("You have been locked out.")
+        self.security.checkLockedOut()
 
-        while True:
-            time.sleep(0.1)
-
-            #If the left sensor is covered, go to password entry.
-            if self.security.returnLight ("left") < self.security.getLeftS():
-                beep(.5, 800)
-                #If it's not locked out, it allows for deactivation
-                if not self.security.getLockedOut():
-                    if self.security.checkPassword():
-                        self.deactivated()
-                    else:
-                        self.security.wrongPassword()
-                else:
-                    self.security.saySomething("You have been locked out.")
-            self.security.checkLockedOut()
 
     def deactivated(self):
         """
