@@ -113,12 +113,6 @@ def alarmSound():
     beep(f, 2093, 1760)
     beep(f, 2093, 1661.22)
 
-def initCamera():
-    setBounds()
-    placeObjects()
-
-
-
 ##  EVERYTHING STARTS HERE 
 ## these functions must be called.
 setBounds()

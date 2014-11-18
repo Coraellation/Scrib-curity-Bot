@@ -2,7 +2,6 @@ from myro import *
 import time
 
 
-
 # noinspection PyPep8Naming,PyMethodMayBeStatic
 class Security:
     """
