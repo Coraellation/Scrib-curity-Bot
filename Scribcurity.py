@@ -27,12 +27,8 @@ class Scribcurity:
                 or self.security.returnLight("center") < self.security.getCenterS()
                 or self.security.returnLight("right") < self.security.getRightS()):
                 self.security.setPassword()
-                self.gui.programPassword(self.security.returnPassword())
                 break
-            #If the user sets it using the GUI.
-            elif self.gui.returnPassword():
-                self.security.programPassword(self.gui.returnPassword())
-                break
+
 
         self.deactivated()
 
@@ -51,7 +47,6 @@ class Scribcurity:
                 #If it's not locked out, it allows for deactivation
                 if not self.security.getLockedOut():
                     if self.security.checkPassword():
-                        self.gui.deactivate()
                         self.deactivated()
                     else:
                         self.security.wrongPassword()
@@ -75,15 +70,13 @@ class Scribcurity:
             #If the left sensor is lit, it activates.
             if self.security.returnLight("left") < self.security.getLeftS() and not self.gui.isActivated:
                 self.activated()
-                self.gui.activate()
-            elif self.gui.isActivated:
-                self.activated()
+
             #If the center sensor is lit, you can change your password
             if self.security.returnLight("center") < self.security.getCenterS() and not self.security.getLockedOut():
                 #If the password is correct, sets the password.
                 if self.security.checkPassword():
                     self.security.setPassword()
-                    self.gui.programPassword(self.security.returnPassword())
+
                 #Otherwise, reactivate security.
                 else:
                     self.security.wrongPassword()
