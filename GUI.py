@@ -50,8 +50,13 @@ class PasswordWindow:
 
         entry = tk.Entry(frame, textvariable = self.password)
         entry.pack()
+<<<<<<< HEAD
         if self.isBadPassword:
             errorLabel = tk.Label (frame, text = "Error. Your password must only contain L, C, or R").pack()
+=======
+
+        errorLabel = tk.Label (frame, text = "Error. Your password must only contain L, C, or R").pack()
+>>>>>>> FETCH_HEAD
 
         button = tk.Button(frame, text = "Set Password", command = self.readyToReturn, padx = 30, pady = 40).pack()
         frame.pack()
