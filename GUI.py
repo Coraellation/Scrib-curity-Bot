@@ -4,6 +4,7 @@ from Tkinter import *
 
 import Tkinter as tk
 import tkFont
+import Security
 
 # noinspection PyPep8Naming,PyUnusedLocal
 class PasswordWindow:
@@ -75,13 +76,13 @@ class PasswordWindow:
 
 # noinspection PyUnusedLocal,PyPep8Naming
 class GUI:
-    def __init__(self, secObj):
+    def __init__(self):
         self.firstRun = True
         self.isCheckPassword = False
         self.isSetPassword = False
         self.isActivated = False
         self.password = []
-        self.security = secObj
+        self.security = Security.Security()
         self.mainMenu() #Remove this for final call.
 
 
@@ -209,3 +210,5 @@ class GUI:
 
     def returnPassword(self):
         return self.password
+
+gui = GUI()

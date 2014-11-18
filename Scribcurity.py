@@ -1,5 +1,4 @@
 import Security
-import GUI
 import time
 
 
@@ -15,7 +14,6 @@ class Scribcurity:
         :return:
         """
         self.security = Security.Security()
-        self.gui = GUI.GUI(self.security)
 
         #OR GUI ACTIVATION...
         self.security.saySomething (
