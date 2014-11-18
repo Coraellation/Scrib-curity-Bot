@@ -25,9 +25,9 @@ class Security:
         self.__lockedOut = False
 
         #GLOBAL light variables (for sensitivity)
-        self.__leftS = 50000
-        self.__centerS = 50000
-        self.__rightS = 50000
+        self.__leftS = 55000
+        self.__centerS = 58000
+        self.__rightS = 55000
 
         self.__password = []
         #init ("/dev/tty.Fluke2-0521-Fluke2")

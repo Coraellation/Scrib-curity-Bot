@@ -1,5 +1,6 @@
 import Security
 import time
+from myro import *
 
 
 
@@ -23,9 +24,16 @@ class Scribcurity:
         while True:
             time.sleep(0.1)
             #If a light is detected at any sensor, set using the Scribbler
-            if (self.security.returnLight("left") < self.security.getLeftS()
-                or self.security.returnLight("center") < self.security.getCenterS()
-                or self.security.returnLight("right") < self.security.getRightS()):
+            if (self.security.returnLight("left") < self.security.getLeftS()):
+                beep(.5, 800)
+                self.security.setPassword()
+                break
+            elif (self.security.returnLight("center") < self.security.getCenterS()):
+                beep(.5, 1000)
+                self.security.setPassword()
+                break
+            elif( self.security.returnLight("right") < self.security.getRightS()):
+                beep(.5, 1200)
                 self.security.setPassword()
                 break
 
@@ -44,6 +52,7 @@ class Scribcurity:
 
             #If the left sensor is covered, go to password entry.
             if self.security.returnLight ("left") < self.security.getLeftS():
+                beep(.5, 800)
                 #If it's not locked out, it allows for deactivation
                 if not self.security.getLockedOut():
                     if self.security.checkPassword():
@@ -69,11 +78,13 @@ class Scribcurity:
             time.sleep(0.1)
             #If the left sensor is lit, it activates.
             if self.security.returnLight("left") < self.security.getLeftS():
+                beep(.5, 800)
                 self.activated()
 
             #If the center sensor is lit, you can change your password
             if self.security.returnLight("center") < self.security.getCenterS() and not self.security.getLockedOut():
                 #If the password is correct, sets the password.
+                beep(.5, 1000)
                 if self.security.checkPassword():
                     self.security.setPassword()
 
