@@ -4,14 +4,14 @@ from Tkinter import *
 
 import Tkinter as tk
 import tkFont
-import Security
 
 # noinspection PyPep8Naming,PyUnusedLocal
 class PasswordWindow:
-    def __init__(self, isGetType):
+    def __init__(self, isGetType, isBadPassword = False):
         self.window = tk.Tk()
         self.password = tk.StringVar()
         self.customFont = tkFont.Font(family="Helvetica light", size=16)
+        self.isBadPassword = isBadPassword
         if isGetType:
             self.createGetWindow()
         else:
@@ -50,7 +50,8 @@ class PasswordWindow:
 
         entry = tk.Entry(frame, textvariable = self.password)
         entry.pack()
-        errorLabel = tk.Label (frame, text = "Error. Your password must only contain L, C, or R").pack()
+        if self.isBadPassword:
+            errorLabel = tk.Label (frame, text = "Error. Your password must only contain L, C, or R").pack()
 
         button = tk.Button(frame, text = "Set Password", command = self.readyToReturn, padx = 30, pady = 40).pack()
         frame.pack()
@@ -58,6 +59,8 @@ class PasswordWindow:
         self.window.title("Scribcurity Password Creation")
         self.window.geometry("800x500+320+220")
         self.window.mainloop()
+
+
 
     #------------------------ HELPERS ---------------------------------
     def readyToReturn(self):
@@ -82,12 +85,10 @@ class GUI:
         self.isSetPassword = False
         self.isActivated = False
         self.password = []
-        self.security = Security.Security()
         self.mainMenu() #Remove this for final call.
 
-
     def mainMenu(self):
-        bgCol = '#cf2d27'
+        #bgCol = '#cf2d27'
         bgCol = '#ffffff'
 
         self.menu = tk.Tk()
@@ -148,30 +149,46 @@ class GUI:
             pass
 
     def setPassword(self):
+        def validPasswordCheck(password):
+            for i in password:
+                if 'LCR '.find(i) == -1:
+                #if i!='L' or i!='C' or i!='R' or i!=' ':
+                    print ("invalid letters")
+                    return False
+            return True
+
         self.closeMenu()
         self.isSetPassword = True
 
-        window = PasswordWindow(0)
-        newPass = window.returnPassword()
-        print (newPass)
-        self.programPassword(newPass)
-        self.security.programPassword(newPass)
-        window.destroy()
+        badPass = False
+        while (1):
+            if badPass:
+                window = PasswordWindow(0, True)
+                newPass = window.returnPassword()
+            else:
+                window = PasswordWindow(0)
+                newPass = window.returnPassword()
+
+            if validPasswordCheck(newPass):
+                self.programPassword(newPass)
+                window.destroy()
+                break
+            else: badPass = True
+            window.destroy()
 
         self.isSetPassword = False
         self.mainMenu()
 
+        return newPass
+
     def checkPassword(self):
         self.closeMenu()
 
-        if not self.security.getLockedOut():
-            self.security.saySomething("You are currently locked out.")
-            return False
+        self.isCheckPassword = True
 
         window = PasswordWindow(1)
         newPass = window.returnPassword()
         print newPass
-        self.security.checkLockedOut()
         if newPass == self.password:
             window.destroy()
             self.isCheckPassword = False
@@ -180,7 +197,6 @@ class GUI:
         else:
             window.destroy()
             self.isCheckPassword = False
-            self.security.wrongPassword()
             return False
 
     def changePassword(self):
@@ -207,8 +223,5 @@ class GUI:
 
     def programPassword(self, password):
         self.password = password
-
-    def returnPassword(self):
-        return self.password
 
 gui = GUI()
