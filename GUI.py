@@ -4,6 +4,7 @@ from Tkinter import *
 
 import Tkinter as tk
 import tkFont
+import Security
 
 # noinspection PyPep8Naming,PyUnusedLocal
 class PasswordWindow:
@@ -50,13 +51,12 @@ class PasswordWindow:
 
         entry = tk.Entry(frame, textvariable = self.password)
         entry.pack()
-<<<<<<< HEAD
+
         if self.isBadPassword:
             errorLabel = tk.Label (frame, text = "Error. Your password must only contain L, C, or R").pack()
-=======
+
 
         errorLabel = tk.Label (frame, text = "Error. Your password must only contain L, C, or R").pack()
->>>>>>> FETCH_HEAD
 
         button = tk.Button(frame, text = "Set Password", command = self.readyToReturn, padx = 30, pady = 40).pack()
         frame.pack()
@@ -90,8 +90,9 @@ class GUI:
         self.isSetPassword = False
         self.isActivated = False
         self.password = []
-        self.mainMenu() #Remove this for final call.
 
+        self.security = Security.Security()
+        self.mainMenu()
     def mainMenu(self):
         #bgCol = '#cf2d27'
         bgCol = '#ffffff'
@@ -178,7 +179,8 @@ class GUI:
                 self.programPassword(newPass)
                 window.destroy()
                 break
-            else: badPass = True
+            else:
+                badPass = True
             window.destroy()
 
         self.isSetPassword = False
