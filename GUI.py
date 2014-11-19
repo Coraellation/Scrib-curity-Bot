@@ -4,7 +4,8 @@ from Tkinter import *
 
 import Tkinter as tk
 import tkFont
-import Security
+
+
 
 # noinspection PyPep8Naming,PyUnusedLocal
 class PasswordWindow:
@@ -90,9 +91,8 @@ class GUI:
         self.isSetPassword = False
         self.isActivated = False
         self.password = []
+        self.security = ""
 
-        self.security = Security.Security()
-        self.mainMenu()
     def mainMenu(self):
         #bgCol = '#cf2d27'
         bgCol = '#ffffff'
@@ -125,6 +125,8 @@ class GUI:
             password = tk.Button(buttonFrame, text = "Set Password", command = self.setPassword, padx = 30, pady = 40).pack(side =LEFT)
 
             self.firstRun = False
+            import Security
+            self.security = Security.Security()
 
         elif self.isActivated:
             activateStatus = "disabled"
@@ -217,6 +219,7 @@ class GUI:
     def activate(self):
         self.closeMenu()
         self.isActivated = True
+        self.security.saySomething("Activated")
         self.mainMenu()
 
     def deactivate(self):
@@ -231,4 +234,8 @@ class GUI:
     def programPassword(self, password):
         self.password = password
 
+
 gui = GUI()
+gui.mainMenu()
+
+
