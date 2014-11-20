@@ -188,13 +188,16 @@ class Security:
     def startAlarm(self):
         alarm.setBounds()
         alarm.placeObjects()
+        self.saySomething("Activated")
         while getLight("left") > self.getLeftS():
             alarm.alarmIterate()
 
     def startAlarmGUI(self):
         alarm.setBounds()
         alarm.placeObjects()
+        self.saySomething("Activated")
         while getLight("left") > self.getLeftS():
-            self.security.saySomething("Activated")
+            alarm.alarmIterate()
+        beep(0.5, 800)
 
 

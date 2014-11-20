@@ -45,7 +45,6 @@ class Scribcurity:
         This runs while the robot is activated.
         It checks to see if the user wants to deactivate the system.
         """
-        self.security.saySomething("Security system is now activated")
         self.security.startAlarm()
 
     #If the left sensor is lighted, go to password entry.

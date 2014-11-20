@@ -12,7 +12,7 @@ yhigh = 0
 black0 = 0
 black1 = 0
 frametol = 10
-thieftol = 100
+thieftol = 120
 i=0
 f = 0.1
 alarmtime = 50
@@ -101,7 +101,7 @@ def alarmIterate():
             alarmSound()
     #if (black1 - black0 > thieftol):
     #    speak("you put something back")
-    black0 = black1-30
+    black0 = black1-10
     i+=1
 
 ## this function just sounds an alarm lol. it is meant to be called in a for loop so it beeps a given number of times.
