@@ -45,9 +45,10 @@ class Scribcurity:
         This runs while the robot is activated.
         It checks to see if the user wants to deactivate the system.
         """
+        self.security.saySomething("Security system is now activated")
         self.security.startAlarm()
 
-    #If the left sensor is covered, go to password entry.
+    #If the left sensor is lighted, go to password entry.
         beep(.5, 800)
         #If it's not locked out, it allows for deactivation
         if not self.security.getLockedOut():
@@ -67,8 +68,8 @@ class Scribcurity:
         """
 
         self.security.saySomething("The robot is currently deactivated.")
-        self.security.saySomething("To activate, cover left light sensor.")
-        self.security.saySomething("To change password, cover the center light sensor.")
+        self.security.saySomething("To activate, light the left light sensor.")
+        self.security.saySomething("To change password, light the center light sensor.")
 
         while True:
             time.sleep(0.1)

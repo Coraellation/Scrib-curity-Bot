@@ -191,3 +191,10 @@ class Security:
         while getLight("left") > self.getLeftS():
             alarm.alarmIterate()
 
+    def startAlarmGUI(self):
+        alarm.setBounds()
+        alarm.placeObjects()
+        while getLight("left") > self.getLeftS():
+            self.security.saySomething("Activated")
+
+

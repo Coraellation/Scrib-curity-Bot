@@ -107,6 +107,8 @@ class GUI:
         showLogo = tk.Label(logoFrame, image = logo).pack()
         logoFrame.pack()
 
+        if self.isActivated:
+            self.security.startAlarmGUI()
         buttonFrame = tk.Frame(bg = bgCol)
 
         if self.firstRun:
@@ -219,7 +221,8 @@ class GUI:
     def activate(self):
         self.closeMenu()
         self.isActivated = True
-        self.security.saySomething("Activated")
+        #self.security.startAlarmGUI()
+
         self.mainMenu()
 
     def deactivate(self):
