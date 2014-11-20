@@ -11,8 +11,9 @@ import tkFont
 class PasswordWindow:
     def __init__(self, isGetType, isBadPassword = False):
         self.window = tk.Tk()
+        self.window.configure(bg = '#ffffff')
         self.password = tk.StringVar()
-        self.customFont = tkFont.Font(family="Helvetica light", size=16)
+        self.customFont = tkFont.Font(family="Helvetica light", size=14)
         self.isBadPassword = isBadPassword
         if isGetType:
             self.createGetWindow()
@@ -22,48 +23,45 @@ class PasswordWindow:
     def createGetWindow(self):
 
         frame = tk.Frame()
+        frame.configure(bg = '#ffffff')
         logoFrame = tk.Frame()
         img = tk.PhotoImage(file="passConfig.gif")
         showLogo = tk.Label(logoFrame, image = img).pack()
         logoFrame.pack()
 
-        label = tk.Label(frame, text = "Enter your password, with a space between characters, and only L,C,R.").pack()
-        entry = tk.Entry(frame, textvariable = self.password)
+        label = tk.Label(frame, text = "Enter your password, with a space between characters, and only L,C,R.\n", bg = '#ffffff').pack()
+        entry = tk.Entry(frame, textvariable = self.password, bg = '#ffffff')
         entry.pack()
         button = tk.Button(frame, text = "Check Password", command = self.readyToReturn, padx = 30, pady = 40).pack()
         frame.pack()
         #STUFF
         self.window.title("Scribcurity Password Creation")
-        self.window.configure()
-        self.window.geometry("800x500+320+220")
+        self.window.configure(bg = '#ffffff')
+        self.window.geometry("800x500+220+100")
         self.window.mainloop()
 
 
     def createSetWindow(self):
 
         frame = tk.Frame()
+        frame.configure(bg = '#ffffff')
         logoFrame = tk.Frame()
         img = tk.PhotoImage(file="passConfig.gif")
         showLogo = tk.Label(logoFrame, image = img).pack()
         logoFrame.pack()
-        label = tk.Label(frame, text = "Enter your password, with a space between characters, and only L,C,R.").pack()
+        label = tk.Label(frame, text = "Enter your password, with a space between characters, and only L,C,R.\n", bg = '#ffffff').pack()
 
-
-
-        entry = tk.Entry(frame, textvariable = self.password)
+        entry = tk.Entry(frame, textvariable = self.password, bg = '#ffffff')
         entry.pack()
 
         if self.isBadPassword:
-            errorLabel = tk.Label (frame, text = "Error. Your password must only contain L, C, or R").pack()
-
-
-        errorLabel = tk.Label (frame, text = "Error. Your password must only contain L, C, or R").pack()
+            errorLabel = tk.Label (frame, text = "Error. Your password must only contain L, C, or R.\n", bg = '#ffffff').pack()
 
         button = tk.Button(frame, text = "Set Password", command = self.readyToReturn, padx = 30, pady = 40).pack()
         frame.pack()
         #STUFF
         self.window.title("Scribcurity Password Creation")
-        self.window.geometry("800x500+320+220")
+        self.window.geometry("800x500+220+100")
         self.window.mainloop()
 
 
@@ -101,7 +99,7 @@ class GUI:
         self.menu.configure(bg = bgCol)
 
         logoFrame = tk.Frame()
-        self.customFont = tkFont.Font(family="helvetica light", size=16)
+        self.customFont = tkFont.Font(family="helvetica light", size=14)
 
         logo = tk.PhotoImage(file="logo.gif")
         showLogo = tk.Label(logoFrame, image = logo).pack()
@@ -149,7 +147,7 @@ class GUI:
         buttonFrame.pack()
 
         self.menu.title("Scribcurity Welcome Page")
-        self.menu.geometry("800x500+320+220")
+        self.menu.geometry("800x500+220+100")
         self.menu.mainloop()
 
     def closeMenu(self):
